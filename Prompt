@@ -1,0 +1,12 @@
+Nous devons faire un site statique en HTML et CSS. il ne faut pas utiliser de div. ça doit  respecter les conventions W3C.
+
+Lis bien le document s18-projet.pdf pour connaitre toutes les consignes. crée un fichier avec tout ce que tu dois faire et fais bien en sorte de le suivre. crée aussi un autre fichier ou tu y sauvegradera toutes les instructions pour faire le site. il sera utilisé lors de la ccompression de ta mémoire. mets tout à jour au fur et à mesure que tu code. we will converse in english, but the website had to be done in french. if you are not sure about something, ask me.
+
+A hamburger menu top right, that is available on any page: (in order) -Home -Jouer -Présentation -Contact
+Top right: a sun and a moon emoji/image and a toggle. if toggle towards sun website in light mode, toogle towards moon website in dark mode. button with text "changer style", when clicked it chanegs the css style used for the page (per the request of the teacher)
+Home: Selection d'image de profil, on inscrit notre nom, on clique sur démarrer. (une fois que c'est cliqué, pas besoin de se souvenir ça ne sert à rien, on va simplement faire une simulation de ce que rendrait un vrai projet finalisé bien fait.) on est envoyé sur la page "Jouer".
+Jouer: page principale du jeu. On nous montre une image de brainrot/meme. on a trois options comme dans tinder: liker, disliker, précedent. chaque meme aura sa propre page et cliquer sur liker ou disliker ira sur la page du meme suivant. cela simule un swipe sur tinder mais n'utilise pas de javascript ou autre, que du html et css. un retour arrière retourne sur le meme précedent en utilisant le retour arrière qui est par défaut dans un navigateur (avec la flèche haut à gauche) (si possible, sinon on devra trouver un autre moyen)
+Présentation: this will be the section with our video
+Contact: this will be the place with the contact form.
+the hamburger menu should always be visible, acccessible, and clickalble.
+The day/night mode always visible and clickable. same for the theme changer.
