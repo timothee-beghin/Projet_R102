@@ -98,16 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Placeholder image data (will be replaced with actual memes in the images/ folder)
     const versusImages = [
-        'images/meme11.jpg',
-        'images/meme12.jpg',
-        'images/meme13.jpg',
-        'images/meme14.jpg',
-        'images/meme15.jpg',
-        'images/meme16.jpg',
-        'images/meme17.jpg',
-        'images/meme18.jpg',
-        'images/meme19.jpg',
-        'images/meme20.jpg',
+        'images/meme1.jpg',
+        'images/meme2.jpg',
+        'images/meme3.jpg',
+        'images/meme4.jpg',
+        'images/meme5.jpg',
+        'images/meme6.jpg',
+        'images/meme7.jpg',
+        'images/meme8.jpg',
+        'images/meme9.jpg',
+        'images/meme10.jpg',
     ];
 
     function getRandomVersusImages() {

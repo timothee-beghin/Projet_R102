@@ -24,30 +24,36 @@
     <main>
         <section id="tinder-mode" class="mode-section active">
             <h2>Mode Tinder</h2>
-            <div class="card-container">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x400?text=Meme+1" alt="Mème aléatoire pour le mode Tinder">
-                    <div class="card-actions">
+            <section class="card-container">
+                <article class="card">
+                    <figure>
+                        <img src="https://via.placeholder.com/300x400?text=Meme+1" alt="Mème aléatoire pour le mode Tinder">
+                    </figure>
+                    <footer class="card-actions">
                         <button class="dislike-btn" aria-label="Ne pas aimer">❌</button>
                         <button class="goback-btn" aria-label="Revenir en arrière">↩️</button>
                         <button class="like-btn" aria-label="Aimer">❤️</button>
-                    </div>
-                </div>
-            </div>
+                    </footer>
+                </article>
+            </section>
         </section>
 
         <section id="versus-mode" class="mode-section">
             <h2>Mode Versus</h2>
-            <div class="versus-container">
-                <div class="versus-card">
-                    <img src="https://via.placeholder.com/300x400?text=Meme+A" alt="Premier mème aléatoire pour le mode Versus">
+            <section class="versus-container">
+                <article class="versus-card">
+                    <figure>
+                        <img src="https://via.placeholder.com/300x400?text=Meme+A" alt="Premier mème aléatoire pour le mode Versus">
+                    </figure>
                     <button class="choose-btn">Choisir</button>
-                </div>
-                <div class="versus-card">
-                    <img src="https://via.placeholder.com/300x400?text=Meme+B" alt="Deuxième mème aléatoire pour le mode Versus">
+                </article>
+                <article class="versus-card">
+                    <figure>
+                        <img src="https://via.placeholder.com/300x400?text=Meme+B" alt="Deuxième mème aléatoire pour le mode Versus">
+                    </figure>
                     <button class="choose-btn">Choisir</button>
-                </div>
-            </div>
+                </article>
+            </section>
         </section>
     </main>
 
@@ -69,7 +75,7 @@
 
     <section id="video-section">
         <h2>Notre Présentation</h2>
-        <div class="video-container">
+        <figure class="video-container">
             <video controls width="640" height="360">
                 <source src="https://www.youtube.com/embed/dQw4w9WgXcQ" type="video/mp4">
                 <!-- Replace with actual video file (e.g., videos/presentation.mp4) -->
@@ -77,11 +83,10 @@
                 <!-- Replace with actual subtitle file (e.g., captions.vtt) -->
                 Your browser does not support the video tag.
             </video>
-        </div>
+        </figure>
         <p>Cette vidéo présente notre projet en moins de deux minutes.</p>
     </section>
 
-    <script src="script.js"></script>
     <footer>
         <p>&copy; 2025 Entendez-moi. Tous droits réservés.</p>
         <p>Visitez aussi :
@@ -90,5 +95,7 @@
             <a href="https://www.mickael-martin-nevot.com" target="_blank">Mickael Martin-Nevot</a>
         </p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
