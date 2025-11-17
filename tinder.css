@@ -1,0 +1,41 @@
+/* Tinder theme styles */
+
+/* Example: Change button colors for Tinder theme */
+.card-actions .dislike-btn {
+    background-color: #ff5252; /* Red */
+    color: #fff;
+    border-color: #ff5252;
+}
+.card-actions .like-btn {
+    background-color: #4CAF50; /* Green */
+    color: #fff;
+    border-color: #4CAF50;
+}
+.card-actions .goback-btn {
+    background-color: #FFC107; /* Amber */
+    color: #fff;
+    border-color: #FFC107;
+}
+
+/* Example: Slightly different card styling */
+.card {
+    border: 2px solid #e94e77;
+}
+
+/* Header color specific to Tinder theme */
+header h1 {
+    color: #e94e77;
+}
+
+/* Navigation links specific to Tinder theme */
+nav ul li a:hover {
+    color: #e94e77;
+}
+
+/* General buttons specific to Tinder theme */
+button {
+    background-color: #e94e77;
+}
+button:hover {
+    background-color: #d43a60;
+}

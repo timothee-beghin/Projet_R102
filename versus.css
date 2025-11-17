@@ -1,0 +1,52 @@
+/* Versus theme styles */
+
+body {
+    background-color: #e0f2f7; /* Lighter blue background */
+    color: #212121;
+}
+
+header {
+    background-color: #2196F3; /* Blue header */
+    color: #fff;
+    border-bottom: 1px solid #1976D2;
+}
+
+header h1 {
+    color: #fff;
+}
+
+nav ul li a {
+    color: #fff;
+}
+
+nav ul li a:hover {
+    color: #BBDEFB; /* Lighter blue on hover */
+}
+
+/* Versus mode specific button styles */
+.versus-card .choose-btn {
+    background-color: #2196F3; /* Blue choose button */
+    color: #fff;
+    border: none;
+}
+
+.versus-card .choose-btn:hover {
+    background-color: #1976D2;
+}
+
+/* General buttons for Versus theme */
+button {
+    background-color: #4CAF50; /* Green */
+}
+button:hover {
+    background-color: #388E3C;
+}
+
+/* Override card container shadow for Versus theme */
+.mode-section {
+    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2); /* Blueish shadow */
+}
+
+.card {
+    border: 2px solid #2196F3;
+}

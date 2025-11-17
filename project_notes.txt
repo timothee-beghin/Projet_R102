@@ -1,0 +1,80 @@
+Project: "Hear Me Out" Tinder-like Website
+
+## Core Idea
+- A website based on the "hear me out" trend.
+- Tinder-like interface.
+- Pre-uploaded photos based on "brainrot or memes".
+- Interface similar to Gartic Phone.
+
+## Themes
+1.  **Tinder-like**: Like, dislike, go back.
+2.  **Versus**: Choose between two photos.
+
+## Technical Constraints
+- Focus on HTML and CSS.
+- JavaScript should be used minimally.
+- No database or PHP.
+- Website must follow W3C guidelines and validations.
+- The whole project should not exceed 10MB.
+- The website must be hosted and accessible on the web.
+- Website language: French.
+
+## Project Requirements (from s18-projet.pdf)
+- A maquette in Figma with wireframes.
+- An oral presentation of 20 minutes.
+- The project must be submitted as a ZIP archive named after the team members.
+- A favicon.
+- A meta description tag.
+- A menu for navigation.
+- Links to other websites.
+- A contact form that generates an email.
+- A video of less than two minutes with subtitles.
+- An "anchor" to go back to the top of the page for long pages.
+- A feature to change the style of the website (we will do this with the two themes).
+- Responsive design for smartphones, tablets, and computers.
+- Good directory architecture.
+- Clean and well-commented code.
+- Accessibility and SEO.
+- Image compression and CSS minification.
+- Use of a project management tool (Notion, Trello, etc.).
+- Use of GitHub for version control.
+
+## Current Progress
+- Basic HTML structure, general CSS styling, and JavaScript for theme switching and mode navigation are implemented.
+- Core functionality for Tinder-like mode (displaying images, like/dislike/goback) is implemented.
+- Core functionality for Versus mode (displaying two images, choosing one to get new pair) is implemented.
+- `meta description` tag and navigation menu are present.
+- Directory architecture is set up.
+- Theme switching is implemented.
+- Favicon link added.
+- Footer with external links added.
+- Contact form (using `mailto:`) added and styled.
+- Video section added and styled.
+- `videos` directory created.
+- Responsive design implemented.
+- Accessibility and SEO improvements made (semantic HTML, alt attributes, aria-labels).
+- Code reviewed for cleanliness and comments.
+
+## Next Steps
+
+### Instructions for User: Image Gathering & Optimization
+- **Image Gathering:** Please gather a collection of "brainrot or meme" images.
+- **Image Optimization:** Ensure these images are optimized for web use (e.g., compressed, appropriate dimensions) to keep the total project size under 10MB as per the PDF guidelines. You can use online tools or image editing software for this.
+- **Image Placement & Naming:** Place these images in the `images` directory. For simplicity, you can name them `meme1.jpg`, `meme2.jpg`, etc., or use descriptive names and update the `script.js` arrays accordingly.
+
+### Instructions for User: Video and Subtitle Files
+- **Video File:** Obtain a video file (MP4 format is widely supported) for your presentation.
+- **Video Placement:** Place this video file in a `videos` directory (you'll need to create this directory). Then, update the `src` attribute of the `<source>` tag in `index.html` to point to your video (e.g., `src="videos/presentation.mp4"`).
+- **Subtitle File:** Create a WebVTT (.vtt) subtitle file for your video. This is a simple text file that contains time-stamped text.
+- **Subtitle Placement:** Place this `.vtt` file in the root directory (or a `captions` directory if you prefer). Then, update the `src` attribute of the `<track>` tag in `index.html` to point to your subtitle file (e.g., `src="captions.vtt"`).
+
+### Instructions for User: Final Validation and Optimization
+- **W3C Validation:** Perform W3C validation on your HTML and CSS files to ensure they meet web standards. You can use online validators like validator.w3.org for HTML and jigsaw.w3.org/css-validator for CSS.
+- **CSS Minification:** Minify your CSS files (`style.css`, `tinder.css`, `versus.css`) before final submission to reduce their file size and improve loading performance. Online tools or build processes can help with this.
+
+### To-do List (Remaining `s18-projet.pdf` requirements)
+- [ ] Gather and optimize meme images. (User's responsibility)
+- [ ] Add a favicon. (User needs to provide `favicon.png`)
+- [ ] Add a video with subtitles. (User needs to provide video/subtitle files)
+- [ ] Ensure W3C validation. (User needs to perform this with a validator)
+- [ ] CSS minification. (User needs to perform this)
