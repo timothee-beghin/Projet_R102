@@ -1,33 +1,39 @@
 :root {
-    /* Color Palette - Gartic Phone Inspired */
-    --bg-color: #1e1141;
-    /* Deep Purple Background */
+    /* Color Palette - Hear Out! / Gartic Phone Inspired */
+    --bg-color: #d67dff;
+    /* Light Purple/Pink Background */
+    --bg-gradient: linear-gradient(135deg, #d67dff 0%, #a358df 100%);
+
     --text-color: #ffffff;
-    --primary-color: #6a3bd3;
-    /* Lighter Purple for Elements */
+    --primary-color: #8a4baf;
+    /* Darker Purple for borders/accents */
     --secondary-color: #ff0099;
     /* Hot Pink */
     --accent-color: #ffcc00;
-    /* Bright Yellow */
-    --card-bg: #321e6d;
-    /* Card Background */
-    --header-bg: #150b2e;
-    /* Darker Header */
-    --shadow: 0 8px 0 rgba(0, 0, 0, 0.4);
-    /* Hard Shadow for "Pop" effect */
-    --glass-border: 4px solid #150b2e;
-    /* Thick Borders */
+    /* Yellow */
+
+    --card-bg: #9b4dca;
+    /* Main Card Purple */
+    --card-inner-bg: #4a2c68;
+    /* Darker inner content areas */
+
+    --header-bg: transparent;
+    /* Header blends in or is minimal */
+
+    --shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
+    --glass-border: 4px solid rgba(255, 255, 255, 0.2);
+
     --input-bg: #ffffff;
-    --input-text: #1e1141;
+    --input-text: #4a2c68;
 }
 
-/* Dark Mode Variables (Gartic Phone is already dark, so we invert or shift slightly) */
+/* Dark Mode Variables */
 body.dark-mode {
-    --bg-color: #0d071c;
+    --bg-color: #2d1b4e;
+    --bg-gradient: linear-gradient(135deg, #2d1b4e 0%, #1a0f2e 100%);
+    --card-bg: #3d2263;
+    --card-inner-bg: #150b2e;
     --text-color: #e0e0e0;
-    --card-bg: #23144d;
-    --header-bg: #080412;
-    --shadow: 0 8px 0 rgba(0, 0, 0, 0.6);
 }
 
 /* Reset & Base Styles */
@@ -39,8 +45,8 @@ body.dark-mode {
 
 body {
     font-family: 'Inter', 'Segoe UI', sans-serif;
-    /* Clean, rounded sans-serif */
     background: var(--bg-color);
+    background: var(--bg-gradient);
     color: var(--text-color);
     line-height: 1.6;
     min-height: 100vh;
@@ -51,12 +57,12 @@ body {
 }
 
 /* Semantic Layout - No Divs */
+/* Semantic Layout - No Divs */
 header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--header-bg);
-    border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+    background: transparent;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -66,14 +72,14 @@ header {
 /* Hamburger Menu */
 #menu-toggle {
     display: block;
-    background: var(--primary-color);
-    border: none;
+    background: var(--card-bg);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     font-size: 1.5rem;
     color: white;
     cursor: pointer;
     padding: 0.5rem 0.8rem;
     border-radius: 12px;
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 #menu-toggle:active {
@@ -89,10 +95,11 @@ nav#main-nav {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: var(--primary-color);
+    background-color: var(--card-bg);
     padding: 1rem;
     border-bottom: 4px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    z-index: 101;
 }
 
 nav#main-nav.active {
@@ -124,7 +131,7 @@ aside {
 
 button {
     background: var(--accent-color);
-    color: var(--bg-color);
+    color: var(--card-inner-bg);
     border: none;
     padding: 0.8rem 1.5rem;
     border-radius: 50px;
@@ -133,37 +140,37 @@ button {
     font-weight: 900;
     font-size: 1rem;
     text-transform: uppercase;
-    box-shadow: 0 6px 0 #c29d00;
-    /* Hard shadow */
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
     transition: transform 0.1s, box-shadow 0.1s;
 }
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 0 #c29d00;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 button:active {
-    transform: translateY(6px);
+    transform: translateY(4px);
     box-shadow: none;
 }
 
 button#theme-toggle {
-    background: var(--primary-color);
+    background: var(--card-bg);
     color: white;
-    box-shadow: 0 6px 0 #4a2895;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
     padding: 0.5rem 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 button#theme-toggle:hover {
-    box-shadow: 0 8px 0 #4a2895;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Main Content */
 main {
     flex: 1;
     padding: 2rem;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     width: 100%;
     display: flex;
@@ -174,48 +181,57 @@ main {
 
 section {
     background: var(--card-bg);
-    border-radius: 30px;
-    padding: 2rem;
-    box-shadow: var(--shadow);
+    border-radius: 40px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 100%;
     text-align: center;
-    border: var(--glass-border);
+    border: 6px solid rgba(255, 255, 255, 0.1);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Meme Card Images */
 .meme-card figure {
-    background: white;
+    background: var(--card-inner-bg);
     padding: 1rem;
     border-radius: 20px;
-    transform: rotate(-2deg);
-    /* Playful tilt */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: none;
+    /* Removed rotation for cleaner look */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
     margin-bottom: 2rem;
+    width: 100%;
+    max-width: 600px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
 }
 
 .meme-card figure img {
     width: 100%;
     border-radius: 12px;
     object-fit: cover;
-    border: 2px solid #eee;
+    border: none;
 }
 
 .meme-card figure figcaption {
     margin-top: 1rem;
-    color: #333;
+    color: white;
     font-weight: 700;
     font-size: 1.2rem;
-    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
-    /* Fallback to playful fonts */
+    font-family: 'Inter', sans-serif;
 }
 
-/* Game Controls */
+/* Game Controls - Tinder Style */
 .game-controls {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
+    gap: 1rem;
+    margin-top: 2rem;
+    background: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .control-btn {
@@ -223,57 +239,57 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     font-size: 2rem;
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    transition: transform 0.1s;
+    border: 3px solid #f0f0f0;
+    transition: transform 0.1s, background 0.2s;
     background: white;
+    color: var(--card-inner-bg);
+    /* Purple icons */
 }
 
 .control-btn:hover {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.1);
+    background: #f9f9f9;
+    border-color: var(--secondary-color);
 }
 
 .control-btn.back {
-    background: #f0f0f0;
-    color: #333;
+    color: var(--card-inner-bg);
 }
 
 .control-btn.dislike {
-    background: #ff4444;
-    color: white;
-    box-shadow: 0 6px 0 #cc0000;
-    border: none;
+    color: var(--card-inner-bg);
+    box-shadow: none;
 }
 
 .control-btn.like {
-    background: #00cc44;
-    color: white;
-    box-shadow: 0 6px 0 #009933;
-    border: none;
+    color: var(--secondary-color);
+    /* Heart can be pink */
+    box-shadow: none;
 }
 
 .control-btn:active {
-    transform: translateY(6px);
-    box-shadow: none !important;
+    transform: scale(0.95);
 }
 
 /* Typography */
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
-    color: var(--accent-color);
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+    color: white;
+    text-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
     font-weight: 900;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 p {
     margin-bottom: 2rem;
     font-size: 1.2rem;
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Form Elements */
@@ -289,9 +305,10 @@ form {
 
 label {
     font-weight: 700;
-    color: var(--accent-color);
+    color: white;
     font-size: 1.1rem;
     align-self: flex-start;
+    margin-left: 1rem;
 }
 
 input[type="text"],
@@ -308,6 +325,7 @@ textarea {
     font-weight: 600;
     font-size: 1.1rem;
     transition: border-color 0.2s;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 textarea {
@@ -329,7 +347,8 @@ fieldset {
     margin-bottom: 1.5rem;
     background: rgba(0, 0, 0, 0.2);
     padding: 1.5rem;
-    border-radius: 20px;
+    border-radius: 30px;
+    width: 100%;
 }
 
 legend {
@@ -353,31 +372,73 @@ input[type="radio"]+img {
 input[type="radio"]:checked+img {
     border-color: var(--accent-color);
     transform: scale(1.1);
-    box-shadow: 0 0 15px var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-color);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 2rem;
-    background: var(--header-bg);
-    border-top: 4px solid rgba(0, 0, 0, 0.2);
+    background: transparent;
+    border-top: none;
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.9rem;
     margin-top: auto;
 }
 
 footer a {
-    color: var(--accent-color);
+    color: white;
     text-decoration: none;
     font-weight: 700;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 footer .back-to-top {
     display: inline-block;
     margin-top: 1rem;
-    background: var(--primary-color);
+    background: rgba(255, 255, 255, 0.2);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
+    border: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    section {
+        padding: 1.5rem;
+        border-radius: 30px;
+    }
+
+    fieldset {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    input[type="radio"]+img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .game-controls {
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .control-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
 }

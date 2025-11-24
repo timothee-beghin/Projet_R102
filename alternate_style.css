@@ -216,3 +216,45 @@ footer .back-to-top {
     margin-top: 1rem;
     color: var(--text-color);
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    section {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    nav {
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    .game-controls {
+        gap: 1rem;
+    }
+
+    .control-btn.back {
+        font-size: 1.5rem;
+    }
+
+    .control-btn.dislike,
+    .control-btn.like {
+        font-size: 2rem;
+    }
+}

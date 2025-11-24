@@ -59,3 +59,182 @@
 
 ## Reference
 -   Original GitHub Repo: `https://github.com/timothee-beghin/Projet_R102.git`
+
+
+
+# Project Demands
+
+Projet
+V5.2.0
+Cette œuvre de Mickaël Martin Nevot est mise à disposition sous licence Creative Commons
+Attribution - Utilisation non commerciale - Partage dans les mêmes conditions.
+Document en ligne : www.mickael-martin-nevot.com
+________________________________________________________________________________
+Date de rendu de la maquette : 16 novembre 2025 à 23h00
+Date de rendu du projet : 18 décembre 2025 à 23h00
+Date de présentation : 19 décembre 2025 à 08h30
+Travail : en trinôme
+1
+Évaluation
+Les barèmes sont indiqués, à titre indicatif, entre parenthèses et en pourcentages. Un bonus pourra
+être octroyé à titre individuel.
+1
+Assistance
+Vous pouvez contacter l’enseignant en cas de besoin en formalisant et en ciblant précisément votre
+demande. Pour ce faire, vous devez respecter les règles de communication et d’envoi (ci-dessous).
+2
+Communication et envoi (2,5 %)
+2.1 Généralités
+En joignant vos coordonnées (e-mail et téléphone portable notamment) à un message ou à votre
+livraison, vous pourrez être joint en cas de problème.
+2.2 Communication
+Chaque communication devra être faite :
+− à destination de votre enseignant responsable :
+o Mickaël MartinNevot : mmartin.nevot@gmail.com ;
+o Olivier Gérard : oliv.gerard@gmail.com ;
+o Pierrick Delamotte : pierrick.delamotte@gmail.com ;
+o Pierre-Alexis de Solminihac : iut@solminihac.fr.
+− en faisant figurer [AMU][IUT][S1] en début de sujet.
+________________________________________________________________________________
+Développement d'interfaces Web
+Mickaël Martin Nevot
+Relecteurs : Emeric Biver, Christophe Delagarde, Nicolas Tassara
+1/4Projet – V5.2.0
+2.3 Livraison
+Votre livrable devra être :
+− nommé de la manière suivante (Nom1, Nom2, Nom3 étant vos noms, par ordre
+lexicographique de vos noms de famille, et Prénom1, Prénom2, Prénom3 vos prénoms) :
+Nom1 Prénom1 – Nom2 Prénom2 – Nom3 Prénom3 ;
+− compressé dans une seule archive au format ZIP n’excédant pas 10 Mo ;
+− remis, avant la date de rendu, sur AMeTICE (http://ametice.univ-amu.fr), à la section
+rendu du cours correspondant.
+3
+Disponibilité
+Votre site Web doit rester disponible jusqu’à la fin de votre année universitaire de formation.
+4
+Conception (5 %)
+Envoyez à votre enseignant responsable, avant la date de rendu de la maquette, l’URL partagée de
+votre fichier de maquette Figma avec l’ensemble des wireframes des pages Web de votre projet
+adaptés aux différents supports.
+5
+Présentation orale (10 %)
+Vous effectuerez une présentation orale sous forme de démonstration de votre projet respectant les
+consignes suivantes :
+− une durée maximale de 20 minutes devant un jury ;
+− à la date de présentation (selon l’ordre de passage que vous sera communiqué par votre
+enseignant responsable) ;
+− sur la réalisation de votre projet à laquelle des questions de cours viendront s’ajouter.
+Conseils pour une communication orale
+Pour tout exercice de communication orale, veillez à respecter rigoureusement les instructions du
+vade-mecum communication orale sur le site Web de l’enseignant : https://www.mickael-
+martin-nevot.com/recueil-des-cours/?:sxx-vade-mecum-communication-orale.pdf.
+6
+Sujet
+Envoyez à votre enseignant responsable, avant la date de rendu du projet (-100 % à défaut) :
+− l’URL de l’index de votre site Web ;
+− la liste de l’ensemble des sources utilisées pour le projet, en particulier l’historique intégal
+des prompts d’éventuelles utilisations de systèmes algorithmiques d'aide à la décision
+(SAAD, ou « IA ») grâce à un outil comme GitHub ou Langfuse.
+Au minimum tous les points suivants doivent être respectés :
+− le site Web doit être hébergé et accessible sur le Web (2,5 %) ;
+− un favicon devra apparaitre sur l’ensemble des pages Web (1,25 %) ;
+− la balise meta description devra être renseignée (1,25 %) ;
+________________________________________________________________________________
+Développement d'interfaces Web
+Mickaël Martin Nevot
+2/4Projet – V5.2.0
+−
+−
+−
+−
+−
+−
+−
+−
+−
+−
+−
+−
+−
+−
+−
+−
+7
+le contenu du site Web devra être pertinent, et portera sur le thème de votre choix (5 %) ;
+un menu devra être toujours présent afin de naviguer sur les différentes pages ou vues Web
+(2,5 %) ;
+des liens vers d'autres sites Web devront être présents sur une des pages ou vue Web
+(2,5 %) ;
+un formulaire ergonomique sera présent pour recueillir les avis ; un e-mail sera généré
+automatiquement à votre attention (et ouvert dans un client de messagerie) (7,5 %) ;
+une vidéo de moins de deux minutes avec un sous-titrage adapté, devra être présente (5 %) ;
+pour les longues pages Web, un ancrage permettant remonter en haut de la page (2,5 %) ;
+possibilité de changer le style du site Web grâce à un lien en JavaScript par l'utilisation
+d'une autre feuille de style (la plus différente possible) de la feuille de style par défaut
+(7,5 %) ;
+le site Web devra être adaptatif à la fois sur smartphones, tablettes et ordinateurs (5 %) ;
+bonne architecture des répertoires (2,5 %) ;
+programmation soignée en HTML et CSS avec usage pertinent de balises sémantiques,
+convention de nommage en anglais, indentation et commentarisation du code source
+(5 %)
+l’accessibilité, le référencement, y compris le référencement local (avec, par défaut,
+l’adresse du département informatique) et réseaux sociaux (10 %) ainsi que l’optimisation
+avec la compression des images (1,25 %), l’utilisation des préfixes propriétaires et la
+minification du CSS (1,25 %), devront être travaillés ;
+le site Web devra présenter le plus grand nombre possible de bonnes pratiques
+d’écoconception (2,5 %) ;
+validationW3C de toutes vos pages HTML (réglage HTML5) (5 %) ;
+validation W3C de toutes vos pages CSS (réglage CSS niveau 3 avec aucun
+avertissement et gestion des extensions propriétaires comme avertissement) (2,5 %) ;
+utilisation d’un système de gestion de projet comme Notion, Trello, GitHub Issues,
+Linear, ou Jira (2,5 %) et de gestion de version comme GitHub (2,5 %) ;
+perfectionnement avec l’ajouts de fonctionnalités (5 %).
+Conseils
+Voici quelques conseils :
+− si vous en utilisez, citez toutes vos sources, c’est une obligation juridique, indispensable,
+qui permet d’apprécier la valeur pédagogique du travail original réalisé par ses auteurs d’un
+point de vue académique ;
+− allez à l’essentiel : il ne s'agit pas de faire un site surchargé et lourd mais bien de pouvoir
+accéder facilement et clairement à toutes les informations essentielles ci-dessus ;
+− rappelez-vous que ce site Web doit, en outre, être attrayant, interactif, ergonomique et
+présenter une tenue professionnelle ;
+− faites une recherche des solutions concurrentes ;
+− faites une maquette avec l’ensemble des wireframes des pages Web de votre projet adaptés
+aux différents supports ;
+− accordez une attention particulière aux formulaires (notamment en utilisant le plus possible
+les types HTML5, des attributs « Web 2.0 » comme placeholder, required, pattern,
+etc.) ;
+− vérifiez que vos sous-titres vidéo sont exacts (d’autant plus s’ils sont initialement générés de
+manière automatique), cohérents, avec peu de texte sur chaque écran (et le divisant en blocs
+________________________________________________________________________________
+Développement d'interfaces Web
+Mickaël Martin Nevot
+3/4Projet – V5.2.0
+−
+−
+−
+−
+−
+−
+logiques) et intégrant des informations non verbales importantes ;
+n'oubliez pas de tester votre site sur différents systèmes d’exploitation et différents
+navigateurs Web (en utilisant notamment des services Web) ;
+pour ceux qui sont à l'aise, vous pouvez mettre en place quelques fonctionnalités
+intéressantes supplémentaires. À faire uniquement après avoir terminé tous les points
+essentiels notés ci-dessus ;
+pensez à utiliser des services gratuits de stockage de ressources en ligne (Youtube,
+ImageShack, Scribd, etc.) afin d’éviter d’encombrer inutilement la taille restreinte du projet
+(et, bien souvent, de gagner en performance) ;
+pensez à charger de manière différée les images qui se situent après la ligne de flottaison ;
+pensez à inscrire votre site Web sur des annuaires (du domaine) ;
+utilisez des outils tels que le navigateur Chrome ou Firefox Developer Edition et au
+minimum les modules :
+o DevTools ;
+o Google Lighthouse ;
+o WAVE et/ou axe ;
+o HeadingsMap ;
+o GreenIT-Analysis.
+________________________________________________________________________________
+Développement d'interfaces Web
+Mickaël Martin Nevot
+4/4
