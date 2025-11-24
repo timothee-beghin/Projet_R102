@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hear Out!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #d946ef 0%, #a855f7 50%, #c026d3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .main-section {
+            flex: 1;
+            background: rgba(168, 85, 247, 0.4);
+            border: 3px solid rgba(216, 70, 239, 0.6);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo-icon {
+            display: inline-block;
+            background: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+
+
+
+        .content-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .character-section {
+            background: rgba(139, 92, 246, 0.5);
+            border-radius: 15px;
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .avatar-icon {
+            width: 60px;
+            height: 60px;
+            background: #333;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            overflow: hidden;
+        }
+
+        .avatar-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-plus {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #a855f7;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+
+
+        .character-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .character-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #a855f7 0%, #c026d3 100%);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-header h2 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .close-modal {
+            background: rgba(255,255,255,0.3);
+            border: 2px solid white;
+            color: white;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 20px;
+            cursor: pointer;
+            float: right;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background: rgba(255,255,255,0.5);
+            transform: rotate(90deg);
+        }
+
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .character-option {
+            background: white;
+            border-radius: 15px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .character-option:hover {
+            transform: scale(1.05);
+            border-color: #fbbf24;
+        }
+
+        .character-option.selected {
+            border-color: #10b981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+
+        .character-option img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .character-title {
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .input-wrapper {
+            width: 100%;
+        }
+
+        .name-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .name-input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .char-count {
+            color: rgba(255,255,255,0.8);
+            font-size: 12px;
+            text-align: right;
+            margin-bottom: 15px;
+        }
+
+        .start-button {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255,255,255,0.3);
+            border: 2px solid white;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .start-button:hover {
+            background: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+        }
+
+        .how-to-play {
+            flex: 1;
+            text-align: center;
+            background: rgba(192, 132, 252, 0.4);
+            border-radius: 15px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .how-to-play h2 {
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .placeholder-box {
+            width: 100%;
+            flex: 1;
+            background: transparent;
+            border: 3px solid rgba(139, 92, 246, 0.6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            min-height: 200px;
+        }
+
+        .placeholder-box::before {
+            content: "✕";
+            font-size: 80px;
+            color: rgba(139, 92, 246, 0.6);
+            font-weight: 300;
+        }
+
+        .dots {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid white;
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: white;
+        }
+
+        .sidebar {
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-avatar {
+            background: rgba(168, 85, 247, 0.4);
+            border: 3px solid rgba(216, 70, 239, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .sidebar-avatar .avatar {
+            margin-bottom: 0;
+        }
+
+        .sidebar-how {
+            background: rgba(168, 85, 247, 0.4);
+            border: 3px solid rgba(216, 70, 239, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar-how h3 {
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 968px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-section">
+            <div class="logo">
+                <div class="logo-icon"></div>
+            </div>
+            
+            <div class="content-wrapper">
+                <div class="character-section">
+                    <div class="avatar">
+                        <div class="avatar-icon"></div>
+                        <div class="avatar-body"></div>
+                        <div class="avatar-plus">+</div>
+                    </div>
+                    <div class="character-title">Choisis un personnage<br>et un surnom</div>
+                    <div class="input-wrapper">
+                        <input type="text" class="name-input" placeholder="Lorem ipsum" maxlength="32">
+                        <div class="char-count">0/32</div>
+                        <button class="start-button">✓ Démarrer</button>
+                    </div>
+                </div>
+                
+                <div class="how-to-play">
+                    <h2>Comment jouer ?</h2>
+                    <div class="placeholder-box"></div>
+                    <div class="dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+    <!-- Modal de sélection de personnage -->
+    <div class="character-modal" id="characterModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">×</button>
+            <div class="modal-header">
+                <h2>Choisis ton personnage</h2>
+            </div>
+            <div class="characters-grid" id="charactersGrid"></div>
+        </div>
+    </div>
+
+    <script>
+        // Liste de memes populaires
+        const characters = [
+            { id: 1, name: 'Dark Michou', url: 'https://risibank.fr/cache/medias/0/21/2108/210894/full.png' },
+            { id: 2, name: 'John Pork', url: 'https://static.wikia.nocookie.net/mightysrobloxmania/images/8/8c/John-Pork.jpeg/revision/latest/thumbnail/width/360/height/450?cb=20240316104629' },
+            { id: 3, name: 'Joker', url: 'https://media.tenor.com/--JqJBtUYgMAAAAe/jonkler-whythotheriouth.png' },
+            { id: 4, name: 'Speed', url: 'https://preview.redd.it/why-has-literally-no-one-noticed-that-deactivated-john-v0-8abxyrrh1lqe1.png?width=304&format=png&auto=webp&s=e35d81f78828ebbe243b9f4b73f3af0b4d05827c' },
+            { id: 5, name: 'Jul', url: 'https://www.laprovence.com/media/2017/10/26/_sh_5322.jpg' },
+            { id: 6, name: 'Cry', url: 'https://media.tenor.com/7xQPI1Udi3MAAAAM/crying-crying-meme.gif' },
+            { id: 7, name: 'Tuff minion', url: 'https://pbs.twimg.com/media/G0FUb-nWwAAKPVq.jpg' },
+            { id: 8, name: 'Timothee.B', url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZk_sDFDfmIyeKCS5Nw0ORSX2jKadDdse_TA&s' }
+        ];
+
+        let selectedCharacter = null;
+
+        // Ouvrir le modal
+        document.querySelectorAll('.avatar-plus').forEach(btn => {
+            btn.addEventListener('click', openModal);
+        });
+
+        function openModal() {
+            const modal = document.getElementById('characterModal');
+            modal.classList.add('active');
+            renderCharacters();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('characterModal');
+            modal.classList.remove('active');
+        }
+
+        // Fermer le modal en cliquant à l'extérieur
+        document.getElementById('characterModal').addEventListener('click', (e) => {
+            if (e.target.id === 'characterModal') {
+                closeModal();
+            }
+        });
+
+        // Afficher les personnages
+        function renderCharacters() {
+            const grid = document.getElementById('charactersGrid');
+            grid.innerHTML = '';
+            
+            characters.forEach(char => {
+                const div = document.createElement('div');
+                div.className = 'character-option';
+                if (selectedCharacter?.id === char.id) {
+                    div.classList.add('selected');
+                }
+                
+                div.innerHTML = `<img src="${char.url}" alt="${char.name}" onerror="this.src='https://via.placeholder.com/100x100/a855f7/ffffff?text=${char.name}'">`;
+                
+                div.addEventListener('click', () => {
+                    selectCharacter(char);
+                });
+                
+                grid.appendChild(div);
+            });
+        }
+
+        // Sélectionner un personnage
+        function selectCharacter(char) {
+            selectedCharacter = char;
+             
+            // Mettre à jour tous les avatars
+            document.querySelectorAll('.avatar-icon').forEach(avatar => {
+                avatar.innerHTML = `<img src="${char.url}" alt="${char.name}" onerror="this.src='https://via.placeholder.com/60x60/333/ffffff?text=${char.name}'">`;
+            });
+            
+            renderCharacters();
+            closeModal();
+        }
+        // Character count
+        const input = document.querySelector('.name-input');
+        const charCount = document.querySelector('.char-count');
+        
+        input.addEventListener('input', (e) => {
+            charCount.textContent = `${e.target.value.length}/32`;
+        });
+
+        // Dots navigation
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                dots.forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
