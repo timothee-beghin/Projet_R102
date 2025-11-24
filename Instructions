@@ -1,0 +1,61 @@
+# Project Specification: Static HTML/CSS Website (No Divs)
+
+        -   Links: "Home", "Jouer", "Présentation", "Contact".
+        -   **Default Style Behavior**: On Mobile (<768px), these links must be hidden behind a **Hamburger Menu (☰)** button. On Desktop, they should be visible in a row.
+        -   **Alternate Style Behavior**: The Hamburger Menu must be **completely removed**. Links should always be visible in a row, regardless of screen size.
+    -   **Theme Controls** (Top Right):
+        -   **Dark/Light Mode Toggle**: A button (☀️/🌙) that toggles a `.dark-mode` class on the `<body>`.
+        -   **Style Switcher**: A button "Changer style" that swaps the active stylesheet between `style.css` (Default) and `alternate_style.css` (Cyberpunk/Neon).
+    -   **Persistence**: The selected Theme (Dark/Light) and Style (Default/Alternate) must be saved in `localStorage` and persist across page reloads and navigation.
+
+-   **Footer**: Must be present on every page.
+    -   Copyright notice.
+    -   **Local SEO**: Address of "Département Informatique, IUT d'Aix-Marseille, 413 Avenue Gaston Berger, 13100 Aix-en-Provence".
+    -   **GitHub Link**: A link to the project repository.
+    -   **Back to Top**: An anchor link (⬆️) that scrolls to the top of the page.
+
+### 2. Pages & Content
+-   **Home (`index.html`)**:
+    -   Profile selection (Radio buttons with images).
+    -   Name input field.
+    -   "Start" button that links to `jouer.html`.
+-   **Game Sequence (`jouer.html`, `jouer_2.html`, etc.)**:
+    -   A "Tinder-like" flow for viewing memes/images.
+    -   **Content**: Display a meme image (use placeholders like `picsum.photos`).
+    -   **Controls**:
+        -   "Like" (💚) -> Links to the next meme page.
+        -   "Dislike" (❌) -> Links to the next meme page.
+        -   "Previous" (↩️) -> Uses `javascript:history.back()` or links to the previous page.
+    -   **End Page (`fin.html`)**: Displayed after the last meme. Includes "Go Home" and "Restart" buttons.
+-   **Presentation (`presentation.html`)**:
+    -   **Video**: Embed a YouTube video (e.g., Big Buck Bunny) presenting the project.
+    -   **External Links**: A section listing useful links:
+        -   Site de l'IUT d'Aix-Marseille
+        -   W3C (World Wide Web Consortium)
+        -   MDN Web Docs
+-   **Contact (`contact.html`)**:
+    -   A semantic contact form.
+    -   **Action**: The form must use `action="mailto:your-email@example.com"` to open the user's email client.
+
+## Technical Specifications (PDF Requirements)
+-   **Favicon**: A custom favicon (e.g., emoji SVG) must be included in the `<head>` of all pages.
+-   **Meta Tags**:
+    -   `viewport` for responsive design.
+    -   `description` for SEO on every page.
+-   **CSS Architecture**:
+    -   `style.css`: The default theme (Clean, Modern).
+    -   `alternate_style.css`: A completely different visual theme (Cyberpunk/Neon).
+    -   Use CSS Variables (`:root`) for colors to easily implement Dark Mode.
+
+## Implementation Details
+-   **File Structure**:
+    -   `index.html`, `jouer.html`, `jouer_2.html`, `fin.html`, `presentation.html`, `contact.html`
+    -   `style.css`, `alternate_style.css`
+    -   `script.js` (for logic)
+-   **Menu Logic**:
+    -   In `style.css`: Use `@media` queries to hide `nav` and show `#menu-toggle` on mobile.
+    -   In `alternate_style.css`: Force `#menu-toggle { display: none !important; }` to disable the collapsible menu.
+-   **Video**: Use a reliable YouTube embed ID (e.g., `aqz-KE-bpKQ`) to avoid playback errors.
+
+## Reference
+-   Original GitHub Repo: `https://github.com/timothee-beghin/Projet_R102.git`
