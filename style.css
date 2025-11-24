@@ -8,32 +8,29 @@
     --primary-color: #8a4baf;
     /* Darker Purple for borders/accents */
     --secondary-color: #ff0099;
-    /* Hot Pink */
-    --accent-color: #ffcc00;
-    /* Yellow */
 
-    --card-bg: #9b4dca;
-    /* Main Card Purple */
-    --card-inner-bg: #4a2c68;
-    /* Darker inner content areas */
+    --card-bg: rgba(168, 85, 247, 0.4);
+    --card-border: 3px solid rgba(216, 70, 239, 0.6);
+    --card-inner-bg: rgba(139, 92, 246, 0.5);
 
     --header-bg: transparent;
-    /* Header blends in or is minimal */
 
-    --shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
-    --glass-border: 4px solid rgba(255, 255, 255, 0.2);
+    --input-bg: rgba(255, 255, 255, 0.2);
+    --input-border: 2px solid rgba(255, 255, 255, 0.3);
+    --input-text: #ffffff;
 
-    --input-bg: #ffffff;
-    --input-text: #4a2c68;
+    --accent-color: #fbbf24;
+    /* Yellow/Gold for highlights */
+    --secondary-color: #c026d3;
+    /* Pink/Purple */
 }
 
 /* Dark Mode Variables */
 body.dark-mode {
-    --bg-color: #2d1b4e;
-    --bg-gradient: linear-gradient(135deg, #2d1b4e 0%, #1a0f2e 100%);
-    --card-bg: #3d2263;
-    --card-inner-bg: #150b2e;
-    --text-color: #e0e0e0;
+    --bg-gradient: linear-gradient(135deg, #4c1d95 0%, #5b21b6 50%, #7c3aed 100%);
+    --card-bg: rgba(76, 29, 149, 0.6);
+    --card-border: 3px solid rgba(139, 92, 246, 0.6);
+    --card-inner-bg: rgba(91, 33, 182, 0.5);
 }
 
 /* Reset & Base Styles */
@@ -44,8 +41,8 @@ body.dark-mode {
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    background: var(--bg-color);
+    font-family: 'Arial', sans-serif;
+    /* Matching meow.css */
     background: var(--bg-gradient);
     color: var(--text-color);
     line-height: 1.6;
@@ -56,8 +53,7 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* Semantic Layout - No Divs */
-/* Semantic Layout - No Divs */
+/* Semantic Layout */
 header {
     position: sticky;
     top: 0;
@@ -72,19 +68,19 @@ header {
 /* Hamburger Menu */
 #menu-toggle {
     display: block;
-    background: var(--card-bg);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     font-size: 1.5rem;
     color: white;
     cursor: pointer;
     padding: 0.5rem 0.8rem;
     border-radius: 12px;
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s;
 }
 
-#menu-toggle:active {
-    transform: translateY(4px);
-    box-shadow: none;
+#menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* Navigation */
@@ -95,10 +91,11 @@ nav#main-nav {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: var(--card-bg);
+    background: rgba(168, 85, 247, 0.95);
+    backdrop-filter: blur(10px);
     padding: 1rem;
-    border-bottom: 4px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     z-index: 101;
 }
 
@@ -109,7 +106,7 @@ nav#main-nav.active {
 nav a {
     text-decoration: none;
     color: white;
-    font-weight: 800;
+    font-weight: bold;
     padding: 1rem;
     text-align: center;
     border-radius: 12px;
@@ -119,7 +116,7 @@ nav a {
 }
 
 nav a:hover {
-    background: var(--secondary-color);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 /* Controls (Theme & Style) */
@@ -130,47 +127,33 @@ aside {
 }
 
 button {
-    background: var(--accent-color);
-    color: var(--card-inner-bg);
-    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
     padding: 0.8rem 1.5rem;
-    border-radius: 50px;
-    /* Pill shape */
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: 900;
+    font-weight: bold;
     font-size: 1rem;
     text-transform: uppercase;
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
-    transition: transform 0.1s, box-shadow 0.1s;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
 }
 
 button:hover {
+    background: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
-    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 button:active {
-    transform: translateY(4px);
-    box-shadow: none;
-}
-
-button#theme-toggle {
-    background: var(--card-bg);
-    color: white;
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
-    padding: 0.5rem 1rem;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-button#theme-toggle:hover {
-    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
 }
 
 /* Main Content */
 main {
     flex: 1;
     padding: 2rem;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     width: 100%;
     display: flex;
@@ -181,57 +164,55 @@ main {
 
 section {
     background: var(--card-bg);
-    border-radius: 40px;
+    border: var(--card-border);
+    border-radius: 20px;
     padding: 3rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
     width: 100%;
+    max-width: 800px;
     text-align: center;
-    border: 6px solid rgba(255, 255, 255, 0.1);
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Meme Card Images */
 .meme-card figure {
     background: var(--card-inner-bg);
     padding: 1rem;
-    border-radius: 20px;
-    transform: none;
-    /* Removed rotation for cleaner look */
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
     margin-bottom: 2rem;
     width: 100%;
     max-width: 600px;
-    border: 4px solid rgba(255, 255, 255, 0.1);
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .meme-card figure img {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 10px;
     object-fit: cover;
-    border: none;
 }
 
 .meme-card figure figcaption {
     margin-top: 1rem;
     color: white;
-    font-weight: 700;
+    font-weight: bold;
     font-size: 1.2rem;
-    font-family: 'Inter', sans-serif;
 }
 
 /* Game Controls - Tinder Style */
 .game-controls {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 2rem;
-    background: white;
-    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem 2rem;
     border-radius: 50px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
 }
 
 .control-btn {
@@ -242,33 +223,16 @@ section {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    font-size: 2rem;
-    border: 3px solid #f0f0f0;
-    transition: transform 0.1s, background 0.2s;
-    background: white;
-    color: var(--card-inner-bg);
-    /* Purple icons */
+    font-size: 1.8rem;
+    border: 2px solid white;
+    transition: all 0.3s;
+    background: transparent;
+    color: white;
 }
 
 .control-btn:hover {
-    transform: scale(1.1);
-    background: #f9f9f9;
-    border-color: var(--secondary-color);
-}
-
-.control-btn.back {
-    color: var(--card-inner-bg);
-}
-
-.control-btn.dislike {
-    color: var(--card-inner-bg);
-    box-shadow: none;
-}
-
-.control-btn.like {
+    background: white;
     color: var(--secondary-color);
-    /* Heart can be pink */
-    box-shadow: none;
 }
 
 .control-btn:active {

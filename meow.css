@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'ico', sans-serif;
     background: linear-gradient(135deg, #d946ef 0%, #a855f7 50%, #c026d3 100%);
     min-height: 100vh;
     display: flex;
@@ -71,7 +71,7 @@ body {
     border-radius: 50%;
     margin-bottom: 30px;
     position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .avatar-icon {
@@ -106,7 +106,7 @@ body {
     font-size: 20px;
     color: #a855f7;
     font-weight: bold;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: all 0.3s;
 }
@@ -118,7 +118,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 1000;
     justify-content: center;
     align-items: center;
@@ -150,7 +150,7 @@ body {
 }
 
 .close-modal {
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     border: 2px solid white;
     color: white;
     border-radius: 50%;
@@ -163,7 +163,7 @@ body {
 }
 
 .close-modal:hover {
-    background: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.5);
     transform: rotate(90deg);
 }
 
@@ -216,9 +216,9 @@ body {
 .name-input {
     width: 100%;
     padding: 12px;
-    border: 2px solid rgba(255,255,255,0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     color: white;
     font-size: 14px;
     margin-bottom: 10px;
@@ -226,11 +226,11 @@ body {
 }
 
 .name-input::placeholder {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .char-count {
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 12px;
     text-align: right;
     margin-bottom: 15px;
@@ -239,7 +239,7 @@ body {
 .start-button {
     width: 100%;
     padding: 12px;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     border: 2px solid white;
     border-radius: 8px;
     color: white;
@@ -250,7 +250,7 @@ body {
 }
 
 .start-button:hover {
-    background: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
 }
 
