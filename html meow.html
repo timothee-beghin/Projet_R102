@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hear Out!</title>
+    <link rel="stylesheet" href="meow.css">
+</head>
+<body>
+    <main class="container">
+        <section class="main-section">
+            <header class="logo">
+                <span class="logo-icon"></span>
+            </header>
+            
+            <article class="content-wrapper">
+                <section class="character-section">
+                    <figure class="avatar">
+                        <span class="avatar-icon"></span>
+                        <span class="avatar-body"></span>
+                        <button class="avatar-plus">+</button>
+                    </figure>
+                    <h1 class="character-title">Choisis un personnage<br>et un surnom</h1>
+                    <section class="input-wrapper">
+                        <input type="text" class="name-input" placeholder="Entrez votre pseudo !" maxlength="32">
+                        <span class="char-count">0/32</span>
+                        <button class="start-button">✓ Démarrer</button>
+                    </section>
+                </section>
+                
+                <aside class="how-to-play">
+                    <h2>Comment jouer ?</h2>
+                    <span class="placeholder-box"></span>
+                    <nav class="dots">
+                        <button class="dot active"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                        <button class="dot"></button>
+                    </nav>
+                </aside>
+            </article>
+        </section>
+    </main>
+    
+    <img src="Hearout.png" alt="Decorative" style="position: fixed; bottom: 610px; right: 910px; width: 100px;">  
+    
+    <section class="character-modal" id="characterModal">
+        <article class="modal-content">
+            <button class="close-modal" onclick="closeModal()">×</button>
+            <header class="modal-header">
+                <h2>Choisis ton personnage</h2>
+            </header>
+            <section class="characters-grid" id="charactersGrid"></section>
+        </article>
+    </section>
+
+    <script>
+        const characters = [
+            { url: 'https://risibank.fr/cache/medias/0/21/2108/210894/full.png' },
+            { url: 'https://static.wikia.nocookie.net/mightysrobloxmania/images/8/8c/John-Pork.jpeg/revision/latest/thumbnail/width/360/height/450?cb=20240316104629' },
+            { url: 'https://media.tenor.com/--JqJBtUYgMAAAAe/jonkler-whythotheriouth.png' },
+            { url: 'https://preview.redd.it/why-has-literally-no-one-noticed-that-deactivated-john-v0-8abxyrrh1lqe1.png?width=304&format=png&auto=webp&s=e35d81f78828ebbe243b9f4b73f3af0b4d05827c' },
+            { url: 'https://www.laprovence.com/media/2017/10/26/_sh_5322.jpg' },
+            { url: 'https://media.tenor.com/7xQPI1Udi3MAAAAM/crying-crying-meme.gif' },
+            { url: 'https://pbs.twimg.com/media/G0FUb-nWwAAKPVq.jpg' },
+            { url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZk_sDFDfmIyeKCS5Nw0ORSX2jKadDdse_TA&s' }
+        ];
+
+        let selectedCharacter = null;
+        //
+
+        document.querySelector('.avatar-plus').addEventListener('click', openModal);
+
+        function openModal() {
+            document.getElementById('characterModal').classList.add('active');
+            renderCharacters();
+        }
+
+        function closeModal() {
+            document.getElementById('characterModal').classList.remove('active');
+        }
+
+        document.getElementById('characterModal').addEventListener('click', (e) => {
+            if (e.target.id === 'characterModal') closeModal();
+        });
+
+        function renderCharacters() {
+            const grid = document.getElementById('charactersGrid');
+            grid.innerHTML = '';
+            
+            characters.forEach(char => {
+                const button = document.createElement('button');
+                button.className = 'character-option';
+                if (selectedCharacter?.id === char.id) button.classList.add('selected');
+                
+                button.innerHTML = `<img src="${char.url}" alt="${char.name}">`;
+                button.addEventListener('click', () => selectCharacter(char));
+                
+                grid.appendChild(button);
+            });
+        }
+
+        function selectCharacter(char) {
+            selectedCharacter = char;
+            document.querySelector('.avatar-icon').innerHTML = `<img src="${char.url}" alt="${char.name}">`;
+            renderCharacters();
+            closeModal();
+        }
+        // gestion de la sélection du personnage ( image dans .avatar-icon )
+        const input = document.querySelector('.name-input');
+        const charCount = document.querySelector('.char-count');
+        
+        input.addEventListener('input', (e) => {
+            charCount.textContent = `${e.target.value.length}/32`;
+        });
+
+        // compte le nombre de caractères dans l'input et met à jour l'affichage (ex: 12/32)
+
+        document.querySelectorAll('.dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
