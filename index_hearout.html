@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hear Out!</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <main class="conteneur">
+        <article class="sectionprincipale">
+            <h1 class="sr-only">Hear Out</h1> <!-- titre principal caché pour l’accessibilité -->
+
+            <!--partie logo -->
+            <header class="logo">
+                <span class="icone"></span>
+            </header>
+            
+            <section class="contenu">
+                <h2 class="sr-only">Contenu principal</h2>
+
+                <!--choix personnage avec le texte explicatif (affiché)-->
+                <section class="sectionperso">
+                    <h2 class="nomperso">Choisis un personnage<br>et un surnom</h2>
+                    
+                    <form class="grilleavatar">
+                        <!--grille des perso-->
+
+                        <input type="radio" id="avatar1" class="choixavatar-option">
+                        <label for="avatar1" class="avatar">
+                            <img src="https://risibank.fr/cache/medias/0/21/2108/210894/full.png" alt="Avatar Dark Michou">
+                        </label>
+
+                        <!--une "radio" correspond à un personnage (avatar)-->
+
+                        <input type="radio" id="avatar2" class="choixavatar-option">
+                        <label for="avatar2" class="avatar">
+                            <img src="https://static.wikia.nocookie.net/mightysrobloxmania/images/8/8c/John-Pork.jpeg" alt="Avatar John Pork">
+                        </label>
+
+                        <input type="radio" id="avatar3" class="choixavatar-option">
+                        <label for="avatar3" class="avatar">
+                            <img src="https://media.tenor.com/--JqJBtUYgMAAAAe/jonkler-whythotheriouth.png" alt="Avatar Joker">
+                        </label>
+
+                        <input type="radio" id="avatar4" class="choixavatar-option">
+                        <label for="avatar4" class="avatar">
+                            <img src="https://preview.redd.it/why-has-literally-no-one-noticed-that-deactivated-john-v0-8abxyrrh1lqe1.png?width=304&format=png&auto=webp&s=e35d81f78828ebbe243b9f4b73f3af0b4d05827c" alt="Avatar Speed">
+                        </label>
+
+                        <input type="radio" id="avatar5" class="choixavatar-option">
+                        <label for="avatar5" class="avatar">
+                            <img src="https://www.laprovence.com/media/2017/10/26/_sh_5322.jpg" alt="Avatar Jul">
+                        </label>
+
+                        <input type="radio" id="avatar6" class="choixavatar-option">
+                        <label for="avatar6" class="avatar">
+                            <img src="https://media.tenor.com/7xQPI1Udi3MAAAAM/crying-crying-meme.gif" alt="Avatar en pleurs">
+                        </label>
+
+                        <input type="radio" id="avatar7" class="choixavatar-option">
+                        <label for="avatar7" class="avatar">
+                            <img src="https://pbs.twimg.com/media/G0FUb-nWwAAKPVq.jpg" alt="Avatar Minion">
+                        </label>
+
+                        <input type="radio" id="avatar8" class="choixavatar-option">
+                        <label for="avatar8" class="avatar">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZk_sDFDfmIyeKCS5Nw0ORSX2jKadDdse_TA&s" alt="Avatar Timothée">
+                        </label>
+                    </form>
+
+                    <!--pseudo-->
+                    <input type="text" class="champpseudo" placeholder="Entre ton pseudo !" maxlength="32">
+                    <!-- type texte - max 32 caractères pour le pseudo (de l'utilisateur)-->
+
+                    <button class="start-button">✓ Démarrer</button>
+                    <!--bouton démarrer-->
+                </section>
+                
+                <section class="cmtjouer">
+                    <h2>Comment jouer ?</h2>
+
+                    <!--radios pour le caroussel / étapes-->
+                    <input type="radio" name="slide" id="etape1" class="carousel-radio" checked>
+                    <input type="radio" name="slide" id="etape2" class="carousel-radio">
+                    <input type="radio" name="slide" id="etape3" class="carousel-radio">
+                    <input type="radio" name="slide" id="etape4" class="carousel-radio">
+                    <input type="radio" name="slide" id="etape5" class="carousel-radio">
+                    <input type="radio" name="slide" id="etape6" class="carousel-radio">
+                    
+                    <!--les différentes "slides"-->
+                    <section class="carousel">
+                        <h3 class="sr-only">Étapes du jeu</h3>
+
+                        <section class="carousel-slides">
+                            <h4 class="sr-only">Slides</h4>
+
+                            <p class="carousel-slide">Étape 1</p>
+                            <p class="carousel-slide">Étape 2</p>
+                            <p class="carousel-slide">Étape 3</p>
+                            <p class="carousel-slide">Étape 4</p>
+                            <p class="carousel-slide">Étape 5</p>
+                            <p class="carousel-slide">
+                                <iframe
+                                    width="100"
+                                    height="200"
+                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1"
+                                    allow="autoplay; encrypted-media"
+                                    allowfullscreen>
+                                </iframe>
+                            </p>
+                        </section>
+                    </section>
+                    
+                    <!--navigation avec les points intéractifs-->
+                    <nav class="carousel-nav">
+                        <label for="etape1" class="carousel-dot"></label>
+                        <label for="etape2" class="carousel-dot"></label>
+                        <label for="etape3" class="carousel-dot"></label>
+                        <label for="etape4" class="carousel-dot"></label>
+                        <label for="etape5" class="carousel-dot"></label>
+                        <label for="etape6" class="carousel-dot"></label>
+                    </nav>
+                </section>
+            </section>
+        </article>
+    </main>
+
+    <img src="Hearout.png" alt="Logo Hear Out" style="position: fixed; bottom: 645px; right: 890px; width: 100px;">
+</body>
+</html>

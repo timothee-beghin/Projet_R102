@@ -1,0 +1,254 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #d946ef 0%, #a855f7 50%, #c026d3 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Conteneur principal */
+.conteneur {
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Section principale */
+.sectionprincipale {
+    background: rgba(168, 85, 247, 0.4);
+    border: 3px solid rgba(216, 70, 239, 0.6);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.icone {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(168, 85, 247, 0.4);
+}
+
+/* Contenu global */
+.contenu {
+    display: flex;
+    gap: 30px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Section personnage */
+.sectionperso {
+    flex: 1;
+    background: rgba(139, 92, 246, 0.5);
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nomperso {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Grille avatars */
+.grilleavatar {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Radios invisibles */
+.choixavatar-option {
+    display: none;
+}
+
+/* Avatar */
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: 0.3s;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Avatar sélectionné */
+.choixavatar-option:checked + .avatar {
+    border-color: #6710b9;
+    box-shadow: 0 0 15px rgba(103, 16, 185, 0.5);
+}
+
+/* Champ pseudo */
+.champpseudo {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.2);
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.champpseudo::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.champpseudo:focus {
+    outline: none;
+    border-color: white;
+}
+
+/* Bouton démarrer */
+.start-button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid white;
+    background: rgba(255,255,255,0.3);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.start-button:hover {
+    background: rgba(255,255,255,0.5);
+}
+
+/* comment jouer */
+.cmtjouer {
+    flex: 1;
+    background: rgba(192, 132, 252, 0.4);
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cmtjouer h2 {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* carousel */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    border: 3px solid rgba(139, 92, 246, 0.6);
+    border-radius: 10px;
+    min-height: 200px;
+    margin-bottom: 20px;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+/* navigation carousel */
+.carousel-nav {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.carousel-radio {
+    display: none;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Déplacements du carousel */
+#etape1:checked ~ .carousel .carousel-slides { transform: translateX(0%); }
+#etape2:checked ~ .carousel .carousel-slides { transform: translateX(-100%); }
+#etape3:checked ~ .carousel .carousel-slides { transform: translateX(-200%); }
+#etape4:checked ~ .carousel .carousel-slides { transform: translateX(-300%); }
+#etape5:checked ~ .carousel .carousel-slides { transform: translateX(-400%); }
+#etape6:checked ~ .carousel .carousel-slides { transform: translateX(-500%); }
+
+/* Point actif */
+#etape1:checked ~ .carousel-nav label[for="etape1"],
+#etape2:checked ~ .carousel-nav label[for="etape2"],
+#etape3:checked ~ .carousel-nav label[for="etape3"],
+#etape4:checked ~ .carousel-nav label[for="etape4"],
+#etape5:checked ~ .carousel-nav label[for="etape5"],
+#etape6:checked ~ .carousel-nav label[for="etape6"] {
+    background: white;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .contenu {
+        flex-direction: column;
+    }
+
+    .grilleavatar {
+        grid-template-columns: repeat(4, 60px);
+    }
+
+    .avatar {
+        width: 60px;
+        height: 60px;
+    }
+}
