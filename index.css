@@ -1,115 +1,123 @@
-/* Reset de base */
+
+/* on enlève tous les styles par défaut du navigateur (marges, espacements bizarres, etc) pour repartir sur une base propre */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* évite les problèmes de calcul de taille */
 }
 
-/* Corps de la page */
+/* style général de toute la page */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /* police simple et lisible */
     background: linear-gradient(135deg, #d946ef 0%, #a855f7 50%, #c026d3 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    /* fond en dégradé violet/rose */
+    min-height: 100vh; /* la page fait au minimum la hauteur de l’écran */
+    display: flex; /* permet de centrer facilement le contenu */
+    justify-content: center; /* centrage horizontal */
+    align-items: center; /* centrage vertical */
+    padding: 20px; /* un peu d’espace autour du contenu */
 }
 
-/* Conteneur principal */
+
+/* bloc qui contient tout le site */
 .conteneur {
-    max-width: 1200px;
-    width: 100%;
+    max-width: 1200px; /* limite la largeur sur les grands écrans */
+    width: 100%; /* prend toute la largeur possible */
 }
 
-/* Section principale */
+/* gros bloc central avec effet "carte" */
 .sectionprincipale {
-    background: rgba(168, 85, 247, 0.4);
-    border: 3px solid rgba(216, 70, 239, 0.6);
-    border-radius: 20px;
-    padding: 40px;
-    backdrop-filter: blur(10px);
+    background: rgba(168, 85, 247, 0.4); /* fond semi-transparent */
+    border: 3px solid rgba(216, 70, 239, 0.6); /* bordure violette */
+    border-radius: 20px; /* coins arrondis */
+    padding: 40px; /* espace intérieur */
+    backdrop-filter: blur(10px); /* effet verre / flou derrière */
 }
 
-/* Logo */
+/* zone du logo en haut */
 .logo {
-    text-align: center;
-    margin-bottom: 40px;
+    text-align: center; /* logo centré */
+    margin-bottom: 40px; /* espace sous le logo */
 }
 
+/* cercle servant d’icône/logo -> NE PAS RETIRER svp sinon y'a un prblm de placement merci*/
 .icone {
     display: inline-block;
     width: 60px;
     height: 60px;
-    border-radius: 50%;
-    background: rgba(168, 85, 247, 0.4);
+    border-radius: 50%; /* rend l’élément rond */
+    background: rgba(139, 92, 246, 0.5);
 }
 
-/* Contenu global */
+/* contient les deux grosses cartes (personnage / comment jouer) */
 .contenu {
-    display: flex;
-    gap: 30px;
+    display: flex; /* met les sections côte à côte */
+    gap: 30px; /* espace entre les deux */
     max-width: 900px;
-    margin: auto;
+    margin: auto; /* centre le bloc */
 }
 
-/* Section personnage */
+/* carte pour choisir l’avatar et le pseudo */
 .sectionperso {
-    flex: 1;
+    flex: 1; /* prend la même largeur que l’autre carte */
     background: rgba(139, 92, 246, 0.5);
     border-radius: 15px;
     padding: 30px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* éléments empilés verticalement */
+    align-items: center; /* tout centré horizontalement */
 }
 
+/* titre de la section personnage */
 .nomperso {
     color: white;
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 15px;
-    text-transform: uppercase;
+    text-transform: uppercase; /* texte en majuscules */
     text-align: center;
 }
 
-/* Grille avatars */
+/* organisation des avatars en grille */
 .grilleavatar {
     display: grid;
-    grid-template-columns: repeat(4, 80px);
-    gap: 10px;
+    grid-template-columns: repeat(4, 80px); /* 4 avatars par ligne */
+    gap: 10px; /* espace entre les avatars */
     margin-bottom: 20px;
 }
 
-/* Radios invisibles */
+/* les boutons radio existent mais sont cachés, on clique sur les images des avatars/perso à la place */
 .choixavatar-option {
     display: none;
 }
 
-/* Avatar */
+/* style des images cliquables */
 .avatar {
     width: 80px;
     height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-    border: 3px solid transparent;
-    transition: 0.3s;
+    border-radius: 50%; /* avatar rond */
+    overflow: hidden; /* cache ce qui dépasse */
+    cursor: pointer; /* curseur main */
+    border: 3px solid transparent; /* bordure invisible par défaut */
+    transition: 0.3s; /* animation fluide */
 }
 
+/* image à l’intérieur de l’avatar */
 .avatar img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* l’image remplit bien le cercle */
 }
 
-/* Avatar sélectionné */
+
+/* quand une radio est cochée, l’avatar correspondant est mis en valeur avec du violet ( a changer ? ) */
 .choixavatar-option:checked + .avatar {
-    border-color: #6710b9;
-    box-shadow: 0 0 15px rgba(103, 16, 185, 0.5);
+    border-color: #6710b9; /* bordure violette */
+    box-shadow: 0 0 15px rgba(103, 16, 185, 0.5); /* effet glow */
 }
 
-/* Champ pseudo */
+
+/* champ pour entrer le pseudo ( contour etc du champ pseudo -- sans clicker -- ) */
 .champpseudo {
     width: 100%;
     padding: 12px;
@@ -121,16 +129,18 @@ body {
     margin-bottom: 10px;
 }
 
+/* texte indicatif du champ ( "entre ton pseudo" = couleur du texte blanc cassé ) */
 .champpseudo::placeholder {
     color: rgba(255,255,255,0.7);
 }
 
+/* style quand on clique dans le champ : pseudo ( contour = blanc ) */
 .champpseudo:focus {
-    outline: none;
+    outline: none; /* enlève le contour par défaut */
     border-color: white;
 }
 
-/* Bouton démarrer */
+/* bouton pour "lancer" le jeu */
 .start-button {
     width: 100%;
     padding: 12px;
@@ -142,11 +152,12 @@ body {
     cursor: pointer;
 }
 
+/* effet au survol -> curseur qui passe sur le démarrer ( changement couleur + sombre ) */
 .start-button:hover {
     background: rgba(255,255,255,0.5);
 }
 
-/* comment jouer */
+/* carte explicative avec le carousel  : "cmt jouer" */
 .cmtjouer {
     flex: 1;
     background: rgba(192, 132, 252, 0.4);
@@ -156,6 +167,7 @@ body {
     flex-direction: column;
 }
 
+/* titre de la section : "cmt jouer" */
 .cmtjouer h2 {
     color: white;
     font-size: 16px;
@@ -165,21 +177,24 @@ body {
     text-align: center;
 }
 
-/* carousel */
+
+/* fenêtre du diapo */
 .carousel {
     width: 100%;
-    overflow: hidden;
+    overflow: hidden; /* cache les slides hors écran */
     border: 3px solid rgba(139, 92, 246, 0.6);
     border-radius: 10px;
     min-height: 200px;
     margin-bottom: 20px;
 }
 
+/* conteneur des slides */
 .carousel-slides {
-    display: flex;
-    transition: transform 0.5s ease;
+    display: flex; /* slides alignées horizontalement */
+    transition: transform 0.5s ease; /* animation du déplacement */
 }
 
+/* une slide */
 .carousel-slide {
     min-width: 100%;
     display: flex;
@@ -189,17 +204,19 @@ body {
     font-size: 20px;
 }
 
-/* navigation carousel */
+/* conteneur des points */
 .carousel-nav {
     display: flex;
     gap: 10px;
     justify-content: center;
 }
 
+/* radios du carousel cachées */
 .carousel-radio {
     display: none;
 }
 
+/* points cliquables pour naviguer dans le carousel : "Comment jouer" */
 .carousel-dot {
     width: 12px;
     height: 12px;
@@ -207,6 +224,8 @@ body {
     border: 2px solid white;
     cursor: pointer;
 }
+
+/* classe pour cacher du texte visuellement mais le garder pour l’accessibilité ? */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -218,7 +237,8 @@ body {
     border: 0;
 }
 
-/* Déplacements du carousel */
+
+/* selon la "radio" cochée, on décale les slides horizontalement ( sorte d'animation ) sans java dcp */
 #etape1:checked ~ .carousel .carousel-slides { transform: translateX(0%); }
 #etape2:checked ~ .carousel .carousel-slides { transform: translateX(-100%); }
 #etape3:checked ~ .carousel .carousel-slides { transform: translateX(-200%); }
@@ -226,7 +246,7 @@ body {
 #etape5:checked ~ .carousel .carousel-slides { transform: translateX(-400%); }
 #etape6:checked ~ .carousel .carousel-slides { transform: translateX(-500%); }
 
-/* Point actif */
+/* le point correspondant à la slide active devient blanc quand il est cliqué */
 #etape1:checked ~ .carousel-nav label[for="etape1"],
 #etape2:checked ~ .carousel-nav label[for="etape2"],
 #etape3:checked ~ .carousel-nav label[for="etape3"],
@@ -236,14 +256,29 @@ body {
     background: white;
 }
 
-/* Responsive */
+/* logo placé en haut, centré entre les deux  */
+.logo-centre {
+    position: absolute;
+    top: 25px; /* position verticale */
+    left: 50%;
+    transform: translateX(-50%); /* centrage horiz parfait */
+    z-index: 10; /* passe au dessus */
+}
+
+/* image du logo responsive -> s'affiche correctement ( côté taille ) */
+.logo-image {
+    width: clamp(90px, 12vw, 100px);
+    height: auto;
+}
+
+/* adaptation pour les petits écrans du genre tel et tablette */
 @media (max-width: 968px) {
     .contenu {
-        flex-direction: column;
+        flex-direction: column; /* sections l’une sous l’autre */
     }
 
     .grilleavatar {
-        grid-template-columns: repeat(4, 60px);
+        grid-template-columns: repeat(4, 60px); /* avatars plus petits */
     }
 
     .avatar {
