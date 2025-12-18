@@ -398,6 +398,8 @@
 
         .input-wrapper {
             width: 100%;
+            border: none;
+            padding: 0;
         }
 
         .name-input {
