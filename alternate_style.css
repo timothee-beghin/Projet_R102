@@ -1,7 +1,10 @@
 :root {
+    /* Color Palette - Neon/Cyberpunk (Light Mode / Day Mode) */
+    /* Making it distinct from Dark Mode: Light Grey BG with Dark Text */
     --bg-color: #e0e0e0;
     --text-color: #1a1a1a;
     --primary-color: #008f11;
+    /* Matrix Green Darker */
     --secondary-color: #ff00ff;
     --accent-color: #0000ff;
     --card-bg: rgba(255, 255, 255, 0.9);
@@ -10,17 +13,21 @@
     --glass-border: 2px solid #008f11;
 }
 
+/* Dark Mode Variables (Cyberpunk Night) */
 body.dark-mode {
     --bg-color: #000000;
     --text-color: #00ff00;
+    /* Classic Terminal Green */
     --primary-color: #00ff00;
     --secondary-color: #ff00ff;
+    /* Magenta Neon */
     --card-bg: rgba(10, 10, 10, 0.9);
     --header-bg: rgba(0, 0, 0, 0.95);
     --shadow: 0 0 15px rgba(0, 255, 0, 0.4);
     --glass-border: 2px solid #00ff00;
 }
 
+/* Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -38,10 +45,12 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
+/* Main Screen Container */
 .screen {
     width: 100%;
     max-width: 1100px;
     min-height: 700px;
+    /* Changed to min-height */
     background: var(--card-bg);
     border: 4px solid var(--primary-color);
     border-radius: 12px;
@@ -54,6 +63,7 @@ body {
     margin: 20px auto;
 }
 
+/* Header / Logo Area */
 .start-header {
     display: flex;
     flex-direction: column;
@@ -88,6 +98,7 @@ body {
     color: var(--text-color);
     padding: 5px 10px;
     border-radius: 5px;
+    /* Square styling for cyberpunk */
     cursor: pointer;
     font-weight: bold;
     font-size: 0.8rem;
@@ -127,6 +138,7 @@ body {
     color: var(--text-color);
 }
 
+/* Main Content Area */
 .center-content {
     display: flex;
     flex: 1;
@@ -136,6 +148,7 @@ body {
     height: 100%;
 }
 
+/* Left Column - User Config */
 .user-column {
     flex: 1;
     display: flex;
@@ -156,9 +169,11 @@ body {
     box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.1);
 }
 
+/* Avatar Selection Styling */
 .avatar-selection {
     display: flex;
     flex-direction: column;
+    /* Stacked */
     align-items: center;
     gap: 1rem;
     border: none;
@@ -166,13 +181,16 @@ body {
     justify-content: center;
 }
 
+/* This is the container script.js updates */
 .avatar-icon {
     width: 120px;
     height: 120px;
     border-radius: 50%;
+    /* Circular */
     border: 4px solid var(--primary-color);
     background: #000;
     overflow: hidden;
+    /* Mask the image */
     position: relative;
     box-shadow: 0 0 15px var(--primary-color);
     display: flex;
@@ -186,21 +204,25 @@ body {
     object-fit: cover;
 }
 
+/* The 'plus' button for the modal */
 .avatar-plus {
     background: var(--secondary-color);
     color: #fff;
     width: 30px;
     height: 30px;
     border-radius: 5px;
+    /* Square */
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     cursor: pointer;
     margin-top: -20px;
+    /* Overlap */
     z-index: 10;
     border: 2px solid var(--bg-color);
 }
+
 
 h4.panel-title {
     font-weight: 900;
@@ -249,6 +271,7 @@ textarea:focus {
     background-color: transparent;
     border: 2px solid var(--secondary-color);
     border-radius: 0;
+    /* Cyberpunk sharp edges */
     color: var(--secondary-color);
     font-family: 'Courier New', monospace;
     font-weight: 900;
@@ -268,10 +291,12 @@ textarea:focus {
     box-shadow: 0 0 20px var(--secondary-color);
 }
 
+/* Right Column - Tutorial / Content */
 .tutorial-column {
     flex: 1;
     border: 1px solid var(--primary-color);
     border-radius: 5px;
+    /* Slight round but mostly square */
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -309,6 +334,7 @@ textarea:focus {
     opacity: 0.8;
 }
 
+/* Meme Card (Game Pages) */
 .meme-card {
     display: flex;
     flex-direction: column;
@@ -317,6 +343,7 @@ textarea:focus {
     width: 100%;
     height: 100%;
     border: 1px solid var(--primary-color);
+    /* Add border for alternate style */
     padding: 20px;
 }
 
@@ -336,6 +363,7 @@ textarea:focus {
     max-height: 350px;
     border: 2px solid var(--text-color);
     filter: sepia(50%) hue-rotate(90deg);
+    /* Cyberpunk filter */
 }
 
 .meme-card figcaption {
@@ -374,6 +402,7 @@ textarea:focus {
     box-shadow: 0 0 10px var(--primary-color);
 }
 
+/* Footer */
 footer {
     margin-top: auto;
     display: flex;
@@ -400,6 +429,9 @@ footer nav a:hover {
     text-decoration: line-through;
 }
 
+/* Mobile adjustments */
+
+/* --- Buttons Improvement --- */
 button,
 .action-btn,
 .invite-btn {
@@ -423,10 +455,12 @@ button:hover,
 .invite-btn:hover {
     background: var(--primary-color);
     color: black;
+    /* Contrast text on hover */
     box-shadow: 0 0 20px var(--primary-color);
     transform: scale(1.05);
 }
 
+/* Specific fix for "Retour" / "Lancer" buttons visibility */
 .lobby-actions {
     display: flex;
     justify-content: center;
@@ -435,6 +469,7 @@ button:hover,
     width: 100%;
 }
 
+/* Centering Content in Panels */
 .lobby-panel,
 .participants-panel,
 .modes-panel {
@@ -447,8 +482,10 @@ button:hover,
 .participants-list {
     width: 100%;
     max-width: 300px;
+    /* Limit width to keep it centered looking */
     margin: 0 auto 20px auto;
     text-align: left;
+    /* Keep list itmes left aligned for readability, but block centered */
 }
 
 .game-info-static {
@@ -458,10 +495,13 @@ button:hover,
     width: 100%;
 }
 
+/* Fix Game Screen Alignment */
 .game-screen {
     justify-content: center;
+    /* Center vertically */
 }
 
+/* --- AVATAR MODAL (Cyberpunk Style) --- */
 .character-modal {
     display: none;
     position: fixed;
@@ -510,11 +550,13 @@ button:hover,
     border: 2px solid var(--secondary-color);
     color: var(--secondary-color);
     border-radius: 0;
+    /* Square for cyberpunk */
     width: 35px;
     height: 35px;
     font-size: 20px;
     cursor: pointer;
     position: absolute;
+    /* Position absolute to corner */
     top: 10px;
     right: 10px;
     transition: all 0.3s;
@@ -536,6 +578,7 @@ button:hover,
     margin-top: 20px;
 }
 
+/* Hide the default radio button */
 .choixavatar-option {
     display: none;
 }
@@ -556,6 +599,7 @@ button:hover,
     box-shadow: 0 0 10px var(--secondary-color);
 }
 
+/* Selected state based on the hidden radio button */
 .choixavatar-option:checked+.character-option {
     border-color: var(--secondary-color);
     box-shadow: 0 0 20px var(--secondary-color);
@@ -576,8 +620,10 @@ button:hover,
     filter: grayscale(0%);
 }
 
+/* --- MENU VISIBILITY FIX --- */
 .menu-toggle {
     display: none;
+    /* Hidden by default on desktop */
     background: none;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
@@ -586,9 +632,11 @@ button:hover,
     padding: 5px;
 }
 
+/* Mobile adjustments */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
+        /* Show on mobile */
     }
 
     .main-nav {
@@ -628,4 +676,17 @@ button:hover,
     .start-header {
         border-bottom: none;
     }
+}
+
+/* --- UTILITIES --- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
