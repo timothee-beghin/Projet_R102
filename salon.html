@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Salon de jeu - Choisissez votre mode et attendez les autres joueurs.">
+    <link rel="icon" href="logo.png" type="image/png">
+    <title>Projet R102 - Salon</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="start-header">
+        <section class="logo-container">
+            <button id="menu-toggle" class="menu-toggle" aria-label="Menu">☰</button>
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <h1 class="logo page-title">SALON DE JEU</h1>
+            <nav id="main-nav" class="main-nav">
+                <a href="index.html">Accueil</a>
+                <a href="salon.html">Jouer</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </section>
+        <nav class="top-controls">
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">☀️</button>
+            <button id="style-switcher">Changer style</button>
+        </nav>
+    </header>
+
+    <main class="screen lobby-screen">
+        <section class="lobby-container">
+            <!-- Left Panel: Participants -->
+            <aside class="lobby-panel participants-panel">
+                <h2>Participants</h2>
+                <ul class="participants-list">
+                    <li class="participant-slot filled me">
+
+                        <span>Moi (Vous)</span>
+                    </li>
+                    <li class="participant-slot filled">
+
+                        <span>Dark Michou</span>
+                    </li>
+                    <li class="participant-slot filled">
+
+                        <span>Joker</span>
+                    </li>
+                    <li class="participant-slot empty">En attente...</li>
+                </ul>
+                <button class="invite-btn">Inviter un ami +</button>
+            </aside>
+
+            <!-- Right Panel: Game Info & Start -->
+            <section class="lobby-panel modes-panel">
+                <h2>Prêt à jouer ?</h2>
+                <div class="game-info-static">
+                    <p>Mode : <strong>Classique</strong></p>
+                    <p>Joueurs : <strong>3/4</strong></p>
+                </div>
+
+                <section class="lobby-actions">
+                    <a href="index.html" class="action-btn secondary">Retour</a>
+                    <a href="jouer.html" class="action-btn primary">Lancer la partie</a>
+                </section>
+            </section>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Brainrot Project. Tous droits réservés.</p>
+                <p>Département Informatique, IUT d'Aix-Marseille</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

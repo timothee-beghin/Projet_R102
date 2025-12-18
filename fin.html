@@ -4,50 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fin du jeu. Merci d'avoir joué !">
+    <meta name="description" content="Fin de la partie - Score final !">
     <link rel="icon" href="logo.png" type="image/png">
-    <title>Projet R102 - Fin</title>
+    <title>Projet R102 - Fin de Partie</title>
     <link id="theme-stylesheet" rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <button id="menu-toggle" aria-label="Menu">☰</button>
-        <nav id="main-nav">
-            <a href="index.html">Home</a>
-            <a href="jouer.html">Jouer</a>
-            <a href="presentation.html">Présentation</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        <aside>
-            <button id="theme-toggle" aria-label="Toggle Dark Mode">☀️</button>
-            <button id="style-switcher">Changer style</button>
-        </aside>
-    </header>
-
-    <main>
-        <section>
-            <h1>Félicitations !</h1>
-            <p>Vous avez survécu au Brainrot.</p>
-            <p>Merci d'avoir joué !</p>
-
-            <nav class="game-controls">
-                <a href="index.html" class="control-btn back" title="Retour Accueil">🏠 Accueil</a>
-                <a href="jouer.html" class="control-btn like" title="Rejouer">🔄 Rejouer</a>
+    <header class="start-header">
+        <section class="logo-container">
+            <button id="menu-toggle" class="menu-toggle" aria-label="Menu">☰</button>
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <h1 class="logo page-title">HEAR OUT!</h1>
+            <nav id="main-nav" class="main-nav">
+                <a href="index.html">Accueil</a>
+                <a href="salon.html">Jouer</a>
+                <a href="contact.html">Contact</a>
             </nav>
         </section>
-    </main>
+        <nav class="top-controls">
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">☀️</button>
+            <button id="style-switcher">Changer style</button>
+        </nav>
+    </header>
 
-    <footer>
-        <p>&copy; 2025 Projet R102 - Brainrot Edition</p>
-        <address>
-            Département Informatique, IUT d'Aix-Marseille<br>
-            413 Avenue Gaston Berger, 13100 Aix-en-Provence
-        </address>
-        <p><a href="https://github.com/timothee-beghin/Projet_R102.git" target="_blank">Voir le dépôt GitHub</a></p>
-        <a href="#" class="back-to-top">⬆️ Retour en haut</a>
-    </footer>
+    <main class="screen end-screen">
+        <section class="result-card">
+            <h2>PARTIE TERMINÉE !</h2>
+
+            <article class="final-score-container">
+                <span class="label">SCORE FINAL</span>
+                <span class="value">300</span>
+            </article>
+
+            <p class="result-message">
+                Masterclass absolute. Hideo Kojima est jaloux.
+            </p>
+
+            <nav class="end-actions">
+                <a href="index.html" class="action-btn secondary">Accueil</a>
+                <a href="salon.html" class="action-btn primary">Rejouer</a>
+            </nav>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Brainrot Project. Tous droits réservés.</p>
+                <p>Département Informatique, IUT d'Aix-Marseille</p>
+            </div>
+        </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>

@@ -4,52 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jouez au jeu du Brainrot ! Swipez les memes pour avancer.">
+    <meta name="description" content="Mode Jeu - Swipez pour gagner !">
     <link rel="icon" href="logo.png" type="image/png">
-    <title>Projet R102 - Jouer</title>
+    <title>Projet R102 - Jeu</title>
     <link id="theme-stylesheet" rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <button id="menu-toggle" aria-label="Menu">☰</button>
-        <nav id="main-nav">
-            <a href="index.html">Home</a>
-            <a href="jouer.html">Jouer</a>
-            <a href="presentation.html">Présentation</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        <aside>
-            <button id="theme-toggle" aria-label="Toggle Dark Mode">☀️</button>
-            <button id="style-switcher">Changer style</button>
-        </aside>
-    </header>
-
-    <main>
-        <section class="meme-card">
-            <figure>
-                <img src="https://picsum.photos/seed/skibidi/500/500" alt="Meme 1">
-                <figcaption>Quand le prof dit "Pas de Div".</figcaption>
-            </figure>
-
-            <nav class="game-controls">
-                <a href="jouer_2.html" class="control-btn dislike" title="Dislike">✖</a>
-                <a href="index.html" class="control-btn back" title="Retour">⟲</a>
-                <a href="jouer_2.html" class="control-btn like" title="Like">❤</a>
+    <header class="start-header">
+        <section class="logo-container">
+            <button id="menu-toggle" class="menu-toggle" aria-label="Menu">☰</button>
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <h1 class="logo page-title">HEAR OUT!</h1>
+            <nav id="main-nav" class="main-nav">
+                <a href="index.html">Accueil</a>
+                <a href="salon.html">Jouer</a>
+                <a href="contact.html">Contact</a>
             </nav>
         </section>
-    </main>
+        <nav class="top-controls">
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">☀️</button>
+            <button id="style-switcher">Changer style</button>
+        </nav>
+    </header>
 
-    <footer>
-        <p>&copy; 2025 Projet R102 - Brainrot Edition</p>
-        <address>
-            Département Informatique, IUT d'Aix-Marseille<br>
-            413 Avenue Gaston Berger, 13100 Aix-en-Provence
-        </address>
-        <p><a href="https://github.com/timothee-beghin/Projet_R102.git" target="_blank">Voir le dépôt GitHub</a></p>
-        <a href="#" class="back-to-top">⬆️ Retour en haut</a>
-    </footer>
+    <main class="screen game-screen">
+        <!-- Game Info / Score -->
+        <section class="game-info-bar">
+            <article class="player-info">
+                <img src="https://via.placeholder.com/40" id="playerAvatar" alt="Avatar" class="mini-avatar">
+                <span id="playerPseudo">Moi</span>
+            </article>
+
+            <article class="score-board">
+                <span class="score-label">SCORE</span>
+                <span class="score-value">0</span>
+            </article>
+        </section>
+
+        <!-- Main Game Area -->
+        <section class="cards-container">
+            <article class="card-stack">
+                <figure class="game-card active">
+                    <img src="https://picsum.photos/seed/meme1/600/800" alt="Meme à juger">
+                    <figcaption>
+                        <h3>POV: Quand le code compile du premier coup</h3>
+                        <p>Impossible n'est pas français, mais c'est louche.</p>
+                    </figcaption>
+                </figure>
+            </article>
+        </section>
+
+        <!-- Controls -->
+        <nav class="game-controls">
+            <a href="jouer_2.html?score=0" class="control-btn dislike" aria-label="Dislike (Passer)">
+                <span>✕</span>
+            </a>
+
+            <section class="action-labels">
+                <span class="label-dislike">PAS OUF</span>
+                <span class="label-like">INCROYABLE</span>
+            </section>
+
+            <a href="jouer_2.html?score=100" class="control-btn like" aria-label="Like (Aimer)">
+                <span>♥</span>
+            </a>
+        </nav>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Brainrot Project. Tous droits réservés.</p>
+                <p>Département Informatique, IUT d'Aix-Marseille</p>
+            </div>
+        </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>

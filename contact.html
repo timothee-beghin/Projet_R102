@@ -12,49 +12,49 @@
 </head>
 
 <body>
-    <header>
-        <button id="menu-toggle" aria-label="Menu">☰</button>
-        <nav id="main-nav">
-            <a href="index.html">Home</a>
-            <a href="jouer.html">Jouer</a>
-            <a href="presentation.html">Présentation</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        <aside>
-            <button id="theme-toggle" aria-label="Toggle Dark Mode">☀️</button>
-            <button id="style-switcher">Changer style</button>
-        </aside>
-    </header>
+    <main class="screen">
+        <header class="start-header">
+            <section class="logo-container">
+                <button id="menu-toggle" class="menu-toggle" aria-label="Menu">☰</button>
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <h1 class="logo page-title">CONTACTEZ-NOUS</h1>
+                <nav id="main-nav" class="main-nav">
+                    <a href="index.html">Accueil</a>
+                    <a href="salon.html">Jouer</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </section>
+            <nav class="top-controls">
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">☀️</button>
+                <button id="style-switcher">Changer style</button>
+            </nav>
+        </header>
 
-    <main>
-        <section>
-            <h1>Contactez-nous</h1>
-            <p>Une question ? Une suggestion ? Envoyez-nous un message !</p>
+        <section class="center-content">
+            <form action="mailto:timothee.beghin@etu.univ-amu.fr" method="POST" enctype="text/plain" class="user-panel">
+                <p class="contact-intro">Une question ? Une suggestion ? Envoyez-nous un
+                    message !</p>
 
-            <form action="mailto:timothee.beghin@etu.univ-amu.fr" method="POST" enctype="text/plain">
-                <label for="name">Nom :</label>
-                <input type="text" id="name" name="name" required>
+                <label for="name" class="form-label">Nom :</label>
+                <input type="text" id="name" name="name" required class="form-input-margin">
 
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" required>
+                <label for="email" class="form-label">Email :</label>
+                <input type="text" id="email" name="email" required class="form-input-margin">
 
-                <label for="message">Message :</label>
+                <label for="message" class="form-label">Message :</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
 
-                <button type="submit">ENVOYER</button>
+                <button type="submit" class="play-btn">ENVOYER</button>
             </form>
         </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2025 Projet R102 - Brainrot Edition</p>
-        <address>
-            Département Informatique, IUT d'Aix-Marseille<br>
-            413 Avenue Gaston Berger, 13100 Aix-en-Provence
-        </address>
-        <p><a href="https://github.com/timothee-beghin/Projet_R102.git" target="_blank">Voir le dépôt GitHub</a></p>
-        <a href="#" class="back-to-top">⬆️ Retour en haut</a>
-    </footer>
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Brainrot Project. Tous droits réservés.</p>
+                <p>Département Informatique, IUT d'Aix-Marseille</p>
+            </div>
+        </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>

@@ -4,70 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Bienvenue sur le projet Brainrot R102. Choisissez votre personnage et commencez !">
-    <link rel="icon" href="logo.png" type="image/png">
-    <title>Projet R102 - Accueil</title>
+    <meta name="description" content="Hear Out! - Un jeu de jugement de mèmes audacieux.">
+    <link rel="icon" href="https://fav.farm/💜" type="image/x-icon">
+    <title>Hear Out!</title>
     <link id="theme-stylesheet" rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <button id="menu-toggle" aria-label="Menu">☰</button>
-        <nav id="main-nav">
-            <a href="index.html">Home</a>
-            <a href="jouer.html">Jouer</a>
-            <a href="presentation.html">Présentation</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        <aside>
+    <header class="start-header">
+        <section class="logo-container">
+            <button id="menu-toggle" class="menu-toggle" aria-label="Menu">☰</button>
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <h1 class="logo page-title">HEAR OUT!</h1>
+            <nav id="main-nav" class="main-nav">
+                <a href="index.html">Accueil</a>
+                <a href="salon.html">Jouer</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </section>
+        <nav class="top-controls">
             <button id="theme-toggle" aria-label="Toggle Dark Mode">☀️</button>
             <button id="style-switcher">Changer style</button>
-        </aside>
+        </nav>
     </header>
 
-    <main>
-        <section>
-            <h1>Bienvenue au Brainrot</h1>
-            <p>Choisissez votre combattant pour commencer l'aventure.</p>
+    <main class="container">
+        <div class="main-section">
+            <div class="content-wrapper">
+                <div class="character-section">
+                    <div class="avatar">
+                        <img src="https://via.placeholder.com/80" class="avatar-icon" alt="Avatar">
+                        <div class="avatar-plus">+</div>
+                    </div>
+                    <div class="character-title">Choisis un personnage<br>et un surnom</div>
+                    <div class="input-wrapper">
+                        <input type="text" class="name-input" placeholder="Pseudo" maxlength="32">
+                        <div class="char-count">0/32</div>
+                        <!-- Static Link Replacement for Start Button -->
+                        <a href="salon.html" class="start-button"
+                            style="text-decoration:none; display:block; text-align:center; box-sizing:border-box;">✓
+                            Démarrer</a>
+                    </div>
+                </div>
 
-            <form action="jouer.html" method="GET">
-                <fieldset>
-                    <legend>Sélectionnez votre avatar :</legend>
-                    <label>
-                        <input type="radio" name="avatar" value="skibidi" checked>
-                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=skibidi" alt="Avatar Skibidi">
-                    </label>
-                    <label>
-                        <input type="radio" name="avatar" value="sigma">
-                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=sigma" alt="Avatar Sigma">
-                    </label>
-                    <label>
-                        <input type="radio" name="avatar" value="gigachad">
-                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=gigachad" alt="Avatar Gigachad">
-                    </label>
-                </fieldset>
-
-                <label for="pseudo">Votre Pseudo :</label>
-                <input type="text" id="pseudo" name="pseudo" placeholder="Entrez votre nom..." required>
-
-                <button type="submit">COMMENCER</button>
-            </form>
-        </section>
+                <div class="how-to-play">
+                    <h2>Comment jouer ?</h2>
+                    <div class="video-container-home">
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/aqz-KE-bpKQ"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Projet R102 - Brainrot Edition</p>
-        <address>
-            Département Informatique, IUT d'Aix-Marseille<br>
-            413 Avenue Gaston Berger, 13100 Aix-en-Provence
-        </address>
-        <p><a href="https://github.com/timothee-beghin/Projet_R102.git" target="_blank">Voir le dépôt GitHub</a></p>
-        <a href="#" class="back-to-top">⬆️ Retour en haut</a>
+        <div class="footer-content">
+            <p>&copy; 2025 Brainrot Project. Tous droits réservés.</p>
+            <p>Département Informatique, IUT d'Aix-Marseille, 413 Avenue Gaston Berger, 13100 Aix-en-Provence</p>
+            <a href="https://github.com/timothee-beghin/Projet_R102" target="_blank">Lien GitHub</a>
+        </div>
+        <a href="#" class="back-to-top" aria-label="Retour en haut">⬆️</a>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Modal de sélection de personnage -->
+    <div class="character-modal" id="characterModal">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close modal">×</button>
+            <div class="modal-header">
+                <h2>Choisis ton personnage</h2>
+            </div>
+            <div class="characters-grid" id="charactersGrid">
+                <!-- Static Choices -->
+                <div class="character-option">
+                    <img src="https://via.placeholder.com/60/FF5733/FFFFFF?text=1" alt="Char 1">
+                </div>
+                <div class="character-option">
+                    <img src="https://via.placeholder.com/60/C70039/FFFFFF?text=2" alt="Char 2">
+                </div>
+                <div class="character-option">
+                    <img src="https://via.placeholder.com/60/900C3F/FFFFFF?text=3" alt="Char 3">
+                </div>
+                <div class="character-option">
+                    <img src="https://via.placeholder.com/60/581845/FFFFFF?text=4" alt="Char 4">
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
