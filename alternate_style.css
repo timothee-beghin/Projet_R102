@@ -113,6 +113,7 @@ body {
 }
 
 .logo-img {
+    max-width: 100%;
     height: 50px;
     width: auto;
     margin-right: 15px;
@@ -171,39 +172,55 @@ body {
 /* Avatar Selection Styling */
 .avatar-selection {
     display: flex;
+    flex-direction: column;
+    /* Stacked */
+    align-items: center;
     gap: 1rem;
     border: none;
     margin-bottom: 2rem;
     justify-content: center;
 }
 
-.avatar-option {
-    position: relative;
-    cursor: pointer;
-}
-
-.avatar-option input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.avatar-option img {
-    width: 100px;
-    height: 100px;
+/* This is the container script.js updates */
+.avatar-icon {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    /* Keep circular avatars */
-    border: 2px solid var(--text-color);
-    transition: all 0.3s;
+    /* Circular */
+    border: 4px solid var(--primary-color);
     background: #000;
-    filter: grayscale(100%);
+    overflow: hidden;
+    /* Mask the image */
+    position: relative;
+    box-shadow: 0 0 15px var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.avatar-option input[type="radio"]:checked+img {
-    border-color: var(--secondary-color);
-    transform: scale(1.1);
-    box-shadow: 0 0 15px var(--secondary-color);
-    filter: grayscale(0%);
+.avatar-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The 'plus' button for the modal */
+.avatar-plus {
+    background: var(--secondary-color);
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    /* Square */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -20px;
+    /* Overlap */
+    z-index: 10;
+    border: 2px solid var(--bg-color);
 }
 
 
@@ -484,7 +501,161 @@ button:hover,
     /* Center vertically */
 }
 
+/* --- AVATAR MODAL (Cyberpunk Style) --- */
+.character-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.character-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border: 4px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 0 20px var(--primary-color);
+    position: relative;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modal-header h2 {
+    color: var(--secondary-color);
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 var(--primary-color);
+}
+
+.close-modal {
+    background: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    border-radius: 0;
+    /* Square for cyberpunk */
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    /* Position absolute to corner */
+    top: 10px;
+    right: 10px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal:hover {
+    background: var(--secondary-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Hide the default radio button */
+.choixavatar-option {
+    display: none;
+}
+
+.character-option {
+    background: black;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: block;
+}
+
+.character-option:hover {
+    transform: scale(1.05);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+
+/* Selected state based on the hidden radio button */
+.choixavatar-option:checked+.character-option {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 20px var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.character-option img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.character-option:hover img,
+.choixavatar-option:checked+.character-option img {
+    filter: grayscale(0%);
+}
+
+/* --- MENU VISIBILITY FIX --- */
+.menu-toggle {
+    display: none;
+    /* Hidden by default on desktop */
+    background: none;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        /* Show on mobile */
+    }
+
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: var(--header-bg);
+        border-bottom: 2px solid var(--primary-color);
+        padding: 20px;
+        z-index: 100;
+    }
+
+    .main-nav.active {
+        display: flex;
+    }
+
     .screen {
         height: auto;
         border: none;

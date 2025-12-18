@@ -112,60 +112,78 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- START BUTTON LOGIC (Restored) ---
     const startButton = document.querySelector('.start-button');
     if (startButton) {
-        startButton.addEventListener('click', () => {
-            const name = document.querySelector('.name-input')?.value || 'Joueur';
-            // Save cosmetic pseudo for next pages
-            localStorage.setItem('currentUser', name);
+        startButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default anchor navigation to ensure params are added
 
             // Navigate to Salon with params
             const currentTheme = localStorage.getItem('theme') || '';
             const currentStyle = localStorage.getItem('style') || '';
 
-            let targetUrl = `salon.html?pseudo=${encodeURIComponent(name)}`;
-            if (currentTheme) targetUrl += `&theme=${currentTheme}`;
-            if (currentStyle) targetUrl += `&style=${currentStyle}`;
+            let targetUrl = 'salon.html';
+            const params = [];
+            if (currentTheme) params.push(`theme=${currentTheme}`);
+            if (currentStyle) params.push(`style=${currentStyle}`);
+
+            if (params.length > 0) {
+                targetUrl += '?' + params.join('&');
+            }
 
             window.location.href = targetUrl;
         });
     }
 
-    // --- COSMETIC UI (No Logic) ---
+    // --- AVATAR SELECTION LOGIC ---
 
-    // Avatar Modal (Visual only)
+    // Avatar Modal & Selection Logic
     const modal = document.getElementById('characterModal');
     if (modal) {
+        // Open Modal
         document.querySelectorAll('.avatar-plus').forEach(btn => {
             btn.addEventListener('click', () => modal.classList.add('active'));
         });
 
+        // Close Modal Handlers
         document.querySelectorAll('.close-modal').forEach(btn => {
             btn.addEventListener('click', () => modal.classList.remove('active'));
         });
-
         modal.addEventListener('click', (e) => {
             if (e.target.id === 'characterModal') modal.classList.remove('active');
         });
 
-        // Click on character just closes modal
-        document.querySelectorAll('.character-option').forEach(opt => {
-            opt.addEventListener('click', () => modal.classList.remove('active'));
+        // Handle Avatar Selection
+        document.querySelectorAll('.choixavatar-option').forEach(input => {
+            input.addEventListener('change', (e) => {
+                const newAvatarUrl = e.target.value;
+
+                // Update Main Preview
+                updateMainAvatar(newAvatarUrl);
+
+                // Save to Storage
+                localStorage.setItem('selectedAvatar', newAvatarUrl);
+
+                // Close Modal
+                setTimeout(() => modal.classList.remove('active'), 200); // Small delay for visual feedback
+            });
         });
     }
 
-    // Mode Selection (Visual only)
-    document.querySelectorAll('.mode-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-        });
-    });
+    // Helper to update the avatar visual
+    function updateMainAvatar(url) {
+        const avatarIcon = document.querySelector('.avatar-icon');
+        if (avatarIcon && url) {
+            // Check if there is an image inside, if so update src, else replace innerHTML
+            const img = avatarIcon.querySelector('img');
+            if (img) {
+                img.src = url;
+            } else {
+                avatarIcon.innerHTML = `<img src="${url}" alt="Selected Avatar" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
+            }
+        }
+    }
 
-    // Dots (Visual only)
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach((dot) => {
-        dot.addEventListener('click', () => {
-            dots.forEach(d => d.classList.remove('active'));
-            dot.classList.add('active');
-        });
-    });
+    // Restore Avatar on Load
+    const savedAvatar = localStorage.getItem('selectedAvatar');
+    if (savedAvatar) {
+        updateMainAvatar(savedAvatar);
+    }
 });
