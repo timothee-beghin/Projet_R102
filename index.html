@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hear Out! - Un jeu de jugement de mèmes audacieux.">
-    <!-- Favicon updated to logo.png -->
     <link rel="icon" href="logo.png" type="image/png">
     <title>Hear Out!</title>
     <link id="theme-stylesheet" rel="stylesheet" href="style.css">
@@ -33,60 +32,53 @@
 
     <main class="container">
         <section class="main-section">
-            <div class="content-wrapper">
-                <article class="character-section">
-                    <div class="avatar">
-                        <div class="avatar-icon">
-                            <img src="https://via.placeholder.com/80" alt="Avatar">
-                        </div>
-                        <div class="avatar-plus">+</div>
-                    </div>
-                    <h2 class="character-title">Choisis un personnage<br>et un surnom</h2>
-                    <div class="input-wrapper">
-                        <input type="text" class="name-input" placeholder="Pseudo" maxlength="32">
-                        <div class="char-count">0/32</div>
-                        <!-- Inline style removed, class start-link added -->
-                        <a href="salon.html" class="start-button start-link">✓ Démarrer</a>
-                    </div>
-                </article>
+            <article class="character-section">
+                <figure class="avatar">
+                    <span class="avatar-icon">
+                        <img src="https://via.placeholder.com/80" alt="Avatar">
+                    </span>
+                    <button class="avatar-plus" type="button" aria-label="Choisir un avatar">+</button>
+                </figure>
+                <h2 class="character-title">Choisis un personnage<br>et un surnom</h2>
+                <fieldset class="input-wrapper">
+                    <input type="text" class="name-input" placeholder="Pseudo" maxlength="32">
+                    <span class="char-count">0/32</span>
+                    <a href="salon.html" class="start-button start-link">✓ Démarrer</a>
+                </fieldset>
+            </article>
 
-                <article class="how-to-play">
-                    <h2>Comment jouer ?</h2>
-                    <div class="video-container-home">
-                        <iframe width="100%" height="200"
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ?cc_load_policy=1"
-                            title="YouTube video player" style="border:0"
-                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="dots">
-                        <div class="dot active"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                    </div>
-                </article>
-            </div>
+            <article class="how-to-play">
+                <h2>Comment jouer ?</h2>
+                <figure class="video-container-home">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ?cc_load_policy=1"
+                        title="YouTube video player" style="border:0"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </figure>
+                <nav class="dots" aria-label="Page indicators">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </nav>
+            </article>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Brainrot Project. Tous droits réservés.</p>
-            <p>Département Informatique, IUT d'Aix-Marseille, 413 Avenue Gaston Berger, 13100 Aix-en-Provence</p>
-            <a href="https://github.com/timothee-beghin/Projet_R102" target="_blank">Lien GitHub</a>
-        </div>
+        <p>&copy; 2025 Brainrot Project. Tous droits réservés.</p>
+        <p>Département Informatique, IUT d'Aix-Marseille, 413 Avenue Gaston Berger, 13100 Aix-en-Provence</p>
+        <a href="https://github.com/timothee-beghin/Projet_R102" target="_blank">Lien GitHub</a>
         <a href="#" class="back-to-top" aria-label="Retour en haut">⬆️</a>
     </footer>
 
     <!-- Modal de sélection de personnage -->
-    <div class="character-modal" id="characterModal">
-        <div class="modal-content">
+    <dialog class="character-modal" id="characterModal">
+        <article class="modal-content">
             <button class="close-modal" aria-label="Close modal">×</button>
-            <div class="modal-header">
+            <header class="modal-header">
                 <h2>Choisis ton personnage</h2>
-            </div>
-            <div class="characters-grid" id="charactersGrid">
-                <!-- User Provided Character Options -->
+            </header>
+            <fieldset class="characters-grid" id="charactersGrid">
                 <input type="radio" name="avatar" id="avatar2" class="choixavatar-option"
                     value="https://static.wikia.nocookie.net/mightysrobloxmania/images/8/8c/John-Pork.jpeg">
                 <label for="avatar2" class="character-option">
@@ -131,9 +123,9 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZk_sDFDfmIyeKCS5Nw0ORSX2jKadDdse_TA&s"
                         alt="Timothée">
                 </label>
-            </div>
-        </div>
-    </div>
+            </fieldset>
+        </article>
+    </dialog>
 </body>
 
 </html>
